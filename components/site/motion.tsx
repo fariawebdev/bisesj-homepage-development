@@ -66,7 +66,10 @@ export function Magnetic({ children, className }: { children: React.ReactNode; c
   )
 }
 
-/** Counts up from a nearby value when scrolled into view. */
+/**
+ * Counts up from a nearby value when scrolled into view.
+ * Initializes to the final number so non-JS and SSR render the exact final statistics.
+ */
 export function CountUp({
   to,
   from,
@@ -82,11 +85,10 @@ export function CountUp({
   const inView = useInView(ref, { once: true, margin: '-40px' })
   const reduce = useReducedMotion()
   const start = from ?? 0
-  const [value, setValue] = useState(reduce ? to : start)
+  const [value, setValue] = useState(to)
 
   useEffect(() => {
     if (!inView || reduce) {
-      if (reduce) setValue(to)
       return
     }
     const controls = animate(start, to, {

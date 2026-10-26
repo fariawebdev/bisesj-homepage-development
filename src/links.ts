@@ -6,6 +6,8 @@
  * in a new tab with rel="noopener noreferrer" via <ExternalLink />.
  */
 
+import { SITE_CONFIG } from '@/lib/site-config'
+
 export type LinkDef = {
   href: string
   internal?: boolean
@@ -50,19 +52,22 @@ export const LINKS = {
   tenderNotice: { href: 'https://bisesjsa.com/tender-notice/' },
   principalRecruitment: { href: 'https://bisesjsa.com/urgent-recruitment/' },
 
-  map: { href: 'https://maps.app.goo.gl/b1y9wDWiEVpdr21BA' },
-  whatsapp: { href: 'https://api.whatsapp.com/send?phone=966582237432' },
-  facebook: { href: 'https://www.facebook.com/bisesjedsa' },
-  youtube: { href: 'https://www.youtube.com/@bisesjsa' },
-  instagram: { href: 'https://www.instagram.com/bisesjsa/' },
+  map: { href: SITE_CONFIG.contact.mapUrl },
+  whatsapp: { href: SITE_CONFIG.contact.whatsapp.href },
+  facebook: { href: SITE_CONFIG.socials.facebook },
+  youtube: { href: SITE_CONFIG.socials.youtube },
+  instagram: { href: SITE_CONFIG.socials.instagram },
 } as const satisfies Record<string, LinkDef>
 
 export type LinkKey = keyof typeof LINKS
 
 export const CONTACT = {
-  phoneDisplay: '+966 12 663 8992',
-  phoneHref: 'tel:+966126638992',
-  email: 'principal@bisesjsa.com',
-  emailHref: 'mailto:principal@bisesjsa.com',
-  whatsappDisplay: '+966 58 223 7432',
+  phoneDisplay: SITE_CONFIG.contact.officialPhone.display,
+  phoneHref: SITE_CONFIG.contact.officialPhone.href,
+  email: SITE_CONFIG.contact.generalEmail.address,
+  emailHref: SITE_CONFIG.contact.generalEmail.href,
+  admissionsEmail: SITE_CONFIG.contact.admissionsEmail.address,
+  admissionsEmailHref: SITE_CONFIG.contact.admissionsEmail.href,
+  whatsappDisplay: SITE_CONFIG.contact.whatsapp.display,
+  whatsappHref: SITE_CONFIG.contact.whatsapp.href,
 } as const
