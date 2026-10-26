@@ -5,4 +5,5 @@ minimumReleaseAgeExclude:
   - next
 
 allowBuilds:
+  esbuild: true
   unrs-resolver: true
