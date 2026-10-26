@@ -1,8 +1,10 @@
 {
   "nav": {
     "home": "হোম",
-    "about": "আমাদের সম্পর্কে",
+    "about": "সম্পর্কে",
+    "admission": "ভর্তি",
     "syllabus": "সিলেবাস",
+    "routine": "রুটিন",
     "academicCalendar": "একাডেমিক ক্যালেন্ডার",
     "news": "সংবাদ",
     "jobVacancy": "চাকরির সুযোগ",

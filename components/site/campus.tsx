@@ -9,7 +9,6 @@ import { Magnetic, Reveal } from './motion'
 import { SafeImage } from './safe-image'
 import { SectionHeading } from './section-heading'
 import { SmartLink } from './smart-link'
-import { bookCampusTour } from './tour'
 
 export function CampusSection() {
   const [index, setIndex] = useState<number | null>(null)
@@ -68,28 +67,6 @@ export function CampusSection() {
             </Reveal>
           ))}
         </ul>
-
-        {/* Campus tour CTA */}
-        <Reveal className="mt-10">
-          <div className="relative overflow-hidden rounded-[28px] bg-primary px-7 py-12 text-primary-foreground md:px-14 md:py-16">
-            <div aria-hidden="true" className="absolute -start-24 -top-24 size-80 rounded-full bg-[radial-gradient(circle,rgb(201_162_75/0.3),transparent_70%)]" />
-            <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-              <div className="max-w-2xl">
-                <h3 className="font-serif text-3xl leading-tight tracking-tight text-balance md:text-5xl">{CAMPUS.ctaHeading}</h3>
-                <p className="mt-4 text-lg text-primary-foreground/75">{CAMPUS.ctaBody}</p>
-              </div>
-              <Magnetic>
-                <a
-                  href="#enquiry"
-                  onClick={bookCampusTour}
-                  className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gold px-8 py-4 text-base font-semibold text-primary shadow-lift transition-colors hover:bg-gold-soft"
-                >
-                  {CAMPUS.cta}
-                </a>
-              </Magnetic>
-            </div>
-          </div>
-        </Reveal>
       </div>
 
       <Lightbox index={index} onClose={close} onStep={step} />

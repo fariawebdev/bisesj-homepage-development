@@ -8,7 +8,6 @@ import { ENQUIRY, SCHOOL } from '@/src/content'
 import { Reveal } from './motion'
 import { SectionHeading } from './section-heading'
 import { SmartLink } from './smart-link'
-import { TOUR_EVENT } from './tour'
 
 type Values = { name: string; phone: string; grade: string; message: string }
 type Errors = Partial<Record<keyof Values, string>>
@@ -37,18 +36,6 @@ export function EnquirySection() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle')
   const messageRef = useRef<HTMLTextAreaElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
-
-  // "Book a Campus Tour" buttons anywhere on the page pre-fill the message.
-  useEffect(() => {
-    const onTour = () => {
-      setValues((v) => ({ ...v, message: ENQUIRY.tourMessage }))
-      setErrors((e) => ({ ...e, message: undefined }))
-      setStatus('idle')
-      window.setTimeout(() => messageRef.current?.focus({ preventScroll: true }), 600)
-    }
-    window.addEventListener(TOUR_EVENT, onTour)
-    return () => window.removeEventListener(TOUR_EVENT, onTour)
-  }, [])
 
   const update = (key: keyof Values) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const next = { ...values, [key]: e.target.value }

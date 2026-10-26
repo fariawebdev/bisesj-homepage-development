@@ -8,7 +8,6 @@ import { useLocale } from './i18n'
 import { SmartLink } from './smart-link'
 import { Magnetic } from './motion'
 import { SafeImage } from './safe-image'
-import { bookCampusTour } from './tour'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -88,14 +87,6 @@ export function Hero() {
                 />
               </SmartLink>
             </Magnetic>
-            <a
-              href="#enquiry"
-              onClick={bookCampusTour}
-              className="inline-flex items-center gap-3 rounded-full border border-white/30 px-7 py-4 text-base font-semibold text-primary-foreground transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-soft"
-            >
-              <CalendarCheck aria-hidden="true" className="size-5 text-gold-soft" />
-              {h.ctaTour}
-            </a>
           </motion.div>
         </div>
 

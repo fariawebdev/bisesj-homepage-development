@@ -1,9 +1,7 @@
 /**
- * Every destination used on the homepage lives here.
- * Replace with new internal routes as pages are built.
- *
- * `internal: true` links stay on this page (same tab). Everything else opens
- * in a new tab with rel="noopener noreferrer" via <ExternalLink />.
+ * Every destination used on the BISESJ website lives here.
+ * All internal links point to the new Next.js routes or local documents.
+ * No external links point to the old WordPress site (bisesjsa.com).
  */
 
 import { SITE_CONFIG } from '@/lib/site-config'
@@ -17,15 +15,31 @@ export const LINKS = {
   home: { href: '#top', internal: true },
   enquiry: { href: '#enquiry', internal: true },
 
-  about: { href: 'https://bisesjsa.com/about-us/' },
-  syllabus: { href: 'https://bisesjsa.com/syllabus/' },
-  academicCalendar: { href: '/documents/academic-calendar-2026-2027.pdf', internal: true },
-  news: { href: 'https://bisesjsa.com/category/notice/https-bisesjsa-com-tender-notice/' },
-  jobVacancy: { href: 'https://bisesjsa.com/category/job-vacancy/' },
-  contact: { href: 'https://bisesjsa.com/contact/' },
-  registration: { href: 'https://bisesjsa.com/registration/' },
+  // Primary Routes
+  about: { href: '/about-us', internal: true },
+  aboutUs: { href: '/about-us', internal: true },
+  admission: { href: '/admission', internal: true },
+  admissions: { href: '/admission', internal: true },
+  admissions2026: { href: '/admission', internal: true },
+  registration: { href: '/admission', internal: true },
+  syllabus: { href: '/syllabus', internal: true },
+  routine: { href: '/routine', internal: true },
+  academicCalendar: { href: '/academic-calendar', internal: true },
+  news: { href: '/news', internal: true },
+  jobVacancy: { href: '/job-vacancy', internal: true },
+  contact: { href: '/contact', internal: true },
 
-  admissions2026: { href: 'https://bisesjsa.com/new-admission-for-the-academic-year-2026-2027/' },
+  // Feature & Message Routes
+  chairmanMessage: { href: '/chairmans-message', internal: true },
+  principalMessage: { href: '/principals-message', internal: true },
+  meritScholarship: { href: '/merit-scholarship', internal: true },
+  twentyYearsCambridge: { href: '/20-years-with-cambridge', internal: true },
+  sportsWeek2025: { href: '/news', internal: true },
+  victoryDay2025: { href: '/news', internal: true },
+  tenderNotice: { href: '/news', internal: true },
+  principalRecruitment: { href: '/job-vacancy', internal: true },
+
+  // PDF Documents
   admissionTestPdf: {
     href: '/documents/admission-test-for-newcomers-2026-27.pdf',
     internal: true,
@@ -38,20 +52,12 @@ export const LINKS = {
     href: '/documents/tuition-fee-structure-foreigner-2026-2027.pdf',
     internal: true,
   },
-  meritScholarship: {
-    href: 'https://bisesjsa.com/introduction-of-merit-scholarship-for-regular-igcse-students/',
+  academicCalendarPdf: {
+    href: '/documents/academic-calendar-2026-2027.pdf',
+    internal: true,
   },
 
-  chairmanMessage: { href: 'https://bisesjsa.com/chairman-message/' },
-  principalMessage: { href: 'https://bisesjsa.com/principals-message/' },
-
-  twentyYearsCambridge: { href: 'https://bisesjsa.com/20-years-with-cambridge/' },
-  sportsWeek2025: { href: 'https://bisesjsa.com/sports-and-cultural-week/' },
-  victoryDay2025: { href: 'https://url-shortener.me/3UAD' },
-
-  tenderNotice: { href: 'https://bisesjsa.com/tender-notice/' },
-  principalRecruitment: { href: 'https://bisesjsa.com/urgent-recruitment/' },
-
+  // External Social & Map
   map: { href: SITE_CONFIG.contact.mapUrl },
   whatsapp: { href: SITE_CONFIG.contact.whatsapp.href },
   facebook: { href: SITE_CONFIG.socials.facebook },

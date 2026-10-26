@@ -1,6 +1,7 @@
 'use client'
 
 import { forwardRef } from 'react'
+import Link from 'next/link'
 import { LINKS, type LinkKey } from '@/src/links'
 import { useLocale } from './i18n'
 
@@ -13,15 +14,34 @@ type SmartLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'
 /**
  * Renders any destination from LINKS. External links always open in a new tab
  * with rel="noopener noreferrer" and an aria-label ending in "(opens in a new tab)".
+ * Internal routes use Next.js <Link> with locale prefixing.
  */
 export const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(function SmartLink(
   { to, label, children, onClick, ...rest },
   ref,
 ) {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
   const link = LINKS[to]
 
   if ('internal' in link && link.internal) {
+    const isHash = link.href.startsWith('#')
+    const isDoc = link.href.startsWith('/documents/')
+
+    if (!isHash && !isDoc) {
+      const localePath = `/${locale}${link.href}`
+      return (
+        <Link
+          ref={ref}
+          href={localePath}
+          aria-label={label}
+          onClick={onClick}
+          {...rest}
+        >
+          {children}
+        </Link>
+      )
+    }
+
     return (
       <a
         ref={ref}

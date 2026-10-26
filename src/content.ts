@@ -35,7 +35,9 @@ export const LOCALES: { code: Locale; label: string; dir: 'ltr' | 'rtl'; name: s
 export type NavKey =
   | 'home'
   | 'about'
+  | 'admission'
   | 'syllabus'
+  | 'routine'
   | 'academicCalendar'
   | 'news'
   | 'jobVacancy'
@@ -52,7 +54,9 @@ export const UI: Record<Locale, UIStrings> = {
 export const NAV_ITEMS: NavKey[] = [
   'home',
   'about',
+  'admission',
   'syllabus',
+  'routine',
   'academicCalendar',
   'news',
   'jobVacancy',
