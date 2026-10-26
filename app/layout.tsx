@@ -33,6 +33,7 @@ const DESCRIPTION =
   "Bangladesh International School, English Section, Jeddah (BISESJ): a Cambridge International School since 1993, offering IGCSE and AS & A Level education for Jeddah's Bangladeshi and international community. Admissions open for 2026-27."
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bisesjsa.com'),
   title: TITLE,
   description: DESCRIPTION,
   generator: 'v0.app',
