@@ -9,6 +9,7 @@ export default defineConfig({
     environment: 'node',
     globals: true,
     pool: 'threads',
+    setupFiles: ['./tests/setup.ts'],
     exclude: ['**/node_modules/**', '**/tests/e2e/**', '**/.next/**'],
   },
   resolve: {

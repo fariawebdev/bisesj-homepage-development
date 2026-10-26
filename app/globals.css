@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-body), var(--font-plex-arabic), var(--font-hind), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-fraunces), var(--font-plex-arabic), var(--font-hind), Georgia, serif;
-  --font-arabic: var(--font-plex-arabic), var(--font-body), sans-serif;
-  --font-bengali: var(--font-hind), var(--font-body), sans-serif;
+  --font-sans: var(--font-body), var(--font-arabic), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), var(--font-arabic), var(--font-bengali), Georgia, serif;
+  --font-arabic: var(--font-arabic), var(--font-body), sans-serif;
+  --font-bengali: var(--font-bengali), var(--font-body), sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

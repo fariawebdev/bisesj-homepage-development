@@ -1,12 +1,14 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, Mail, Menu, Phone, X, CalendarDays } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ASSETS } from '@/src/assets'
 import { CONTACT } from '@/src/links'
-import { LOCALES, NAV_ITEMS, SCHOOL } from '@/src/content'
+import { LOCALES, NAV_ITEMS, SCHOOL, type Locale } from '@/src/content'
+import { isLocaleEnabled } from '@/lib/i18n'
 import { useLocale } from './i18n'
 import { SmartLink } from './smart-link'
 import { Magnetic } from './motion'
@@ -98,18 +100,38 @@ function UtilityBar() {
 
 function LanguageSwitcher({ className }: { className?: string }) {
   const { locale, setLocale } = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const visibleLocales = LOCALES.filter((l) => isLocaleEnabled(l.code))
+
+  const handleSelectLocale = (newLocale: Locale) => {
+    setLocale(newLocale)
+    if (pathname) {
+      const segments = pathname.split('/')
+      if (segments[1] && (LOCALES.map((l) => l.code) as string[]).includes(segments[1])) {
+        segments[1] = newLocale
+        router.push(segments.join('/') || `/${newLocale}`)
+      } else {
+        router.push(`/${newLocale}${pathname === '/' ? '' : pathname}`)
+      }
+    } else {
+      router.push(`/${newLocale}`)
+    }
+  }
+
   return (
     <div
       role="group"
       aria-label="Choose language"
       className={cn('flex items-center rounded-full border border-border bg-card/70 p-0.5', className)}
     >
-      {LOCALES.map((l) => (
+      {visibleLocales.map((l) => (
         <button
           key={l.code}
           type="button"
           lang={l.code}
-          onClick={() => setLocale(l.code)}
+          onClick={() => handleSelectLocale(l.code)}
           aria-pressed={locale === l.code}
           aria-label={l.name}
           className={cn(

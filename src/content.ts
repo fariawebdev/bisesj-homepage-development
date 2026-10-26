@@ -13,17 +13,23 @@
 import type { LinkKey } from './links'
 import { ASSETS } from './assets'
 import { SITE_CONFIG } from '@/lib/site-config'
+import {
+  type Locale,
+  LOCALE_CONFIG,
+  getMessages,
+  type Messages,
+} from '@/lib/i18n'
 
 /* -------------------------------------------------------------------------- */
 /*                                   i18n                                     */
 /* -------------------------------------------------------------------------- */
 
-export type Locale = 'en' | 'ar' | 'bn'
+export type { Locale }
 
 export const LOCALES: { code: Locale; label: string; dir: 'ltr' | 'rtl'; name: string }[] = [
-  { code: 'en', label: 'EN', dir: 'ltr', name: 'English' },
-  { code: 'ar', label: 'عربي', dir: 'rtl', name: 'العربية' },
-  { code: 'bn', label: 'বাংলা', dir: 'ltr', name: 'বাংলা' },
+  LOCALE_CONFIG.en,
+  LOCALE_CONFIG.ar,
+  LOCALE_CONFIG.bn,
 ]
 
 export type NavKey =
@@ -35,128 +41,12 @@ export type NavKey =
   | 'jobVacancy'
   | 'contact'
 
-type UIStrings = {
-  nav: Record<NavKey, string>
-  applyNow: string
-  announcement: string
-  newTab: string
-  menu: string
-  close: string
-  call: string
-  whatsapp: string
-  backToTop: string
-  hero: {
-    eyebrow: string
-    title: [string, string]
-    sub: string
-    ctaApply: string
-    ctaTour: string
-    cardAdmissionsTitle: string
-    cardAdmissionsBody: string
-    cardAdmissionsCta: string
-    cardScholarshipTitle: string
-    cardScholarshipBody: string
-    cardScholarshipCta: string
-  }
-}
+export type UIStrings = Messages
 
 export const UI: Record<Locale, UIStrings> = {
-  en: {
-    nav: {
-      home: 'Home',
-      about: 'About Us',
-      syllabus: 'Syllabus',
-      academicCalendar: 'Academic Calendar',
-      news: 'News',
-      jobVacancy: 'Job Vacancy',
-      contact: 'Contact',
-    },
-    applyNow: 'Apply Now',
-    announcement: 'Admissions open for Academic Year 2026-27, Apply today',
-    newTab: '(opens in a new tab)',
-    menu: 'Open menu',
-    close: 'Close menu',
-    call: 'Call',
-    whatsapp: 'WhatsApp',
-    backToTop: 'Back to top',
-    hero: {
-      eyebrow: 'Established 1993 · Cambridge International School · Jeddah',
-      title: ['Rooted in our culture.', 'Ready for the world.'],
-      sub: "Cambridge IGCSE and AS & A Level education for Jeddah's Bangladeshi and international community.",
-      ctaApply: 'Apply for 2026-27',
-      ctaTour: 'Book a Campus Tour',
-      cardAdmissionsTitle: 'Admissions Open 2026-27',
-      cardAdmissionsBody: 'Newcomers sit a short admission test. Download the paper to prepare.',
-      cardAdmissionsCta: 'Download Admission Test PDF',
-      cardScholarshipTitle: 'Merit Scholarship for Regular IGCSE Students',
-      cardScholarshipBody: 'Recognising consistent academic excellence.',
-      cardScholarshipCta: 'Learn more',
-    },
-  },
-  ar: {
-    nav: {
-      home: 'الرئيسية',
-      about: 'من نحن',
-      syllabus: 'المناهج',
-      academicCalendar: 'التقويم الأكاديمي',
-      news: 'الأخبار',
-      jobVacancy: 'الوظائف الشاغرة',
-      contact: 'اتصل بنا',
-    },
-    applyNow: 'سجّل الآن',
-    announcement: 'القبول مفتوح للعام الدراسي 2026-27، قدّم اليوم',
-    newTab: '(يفتح في علامة تبويب جديدة)',
-    menu: 'فتح القائمة',
-    close: 'إغلاق القائمة',
-    call: 'اتصال',
-    whatsapp: 'واتساب',
-    backToTop: 'العودة إلى الأعلى',
-    hero: {
-      eyebrow: 'تأسست عام 1993 · مدرسة كامبريدج الدولية · جدة',
-      title: ['متجذّرون في ثقافتنا.', 'مستعدّون للعالم.'],
-      sub: 'تعليم كامبريدج IGCSE والمستويين AS و A Level للجالية البنغلاديشية والمجتمع الدولي في جدة.',
-      ctaApply: 'قدّم للعام 2026-27',
-      ctaTour: 'احجز جولة في المدرسة',
-      cardAdmissionsTitle: 'القبول مفتوح 2026-27',
-      cardAdmissionsBody: 'يخضع الطلاب الجدد لاختبار قبول قصير. حمّل النموذج للاستعداد.',
-      cardAdmissionsCta: 'تحميل اختبار القبول (PDF)',
-      cardScholarshipTitle: 'منحة التفوّق لطلاب IGCSE النظاميين',
-      cardScholarshipBody: 'تقديرًا للتميّز الأكاديمي المستمر.',
-      cardScholarshipCta: 'اعرف المزيد',
-    },
-  },
-  bn: {
-    nav: {
-      home: 'হোম',
-      about: 'আমাদের সম্পর্কে',
-      syllabus: 'সিলেবাস',
-      academicCalendar: 'একাডেমিক ক্যালেন্ডার',
-      news: 'সংবাদ',
-      jobVacancy: 'চাকরির সুযোগ',
-      contact: 'যোগাযোগ',
-    },
-    applyNow: 'এখনই আবেদন করুন',
-    announcement: '২০২৬-২৭ শিক্ষাবর্ষে ভর্তি চলছে, আজই আবেদন করুন',
-    newTab: '(নতুন ট্যাবে খোলে)',
-    menu: 'মেনু খুলুন',
-    close: 'মেনু বন্ধ করুন',
-    call: 'কল',
-    whatsapp: 'হোয়াটসঅ্যাপ',
-    backToTop: 'উপরে ফিরে যান',
-    hero: {
-      eyebrow: 'প্রতিষ্ঠিত ১৯৯৩ · কেমব্রিজ ইন্টারন্যাশনাল স্কুল · জেদ্দা',
-      title: ['শিকড় আমাদের সংস্কৃতিতে।', 'প্রস্তুত বিশ্বের জন্য।'],
-      sub: 'জেদ্দার বাংলাদেশি ও আন্তর্জাতিক কমিউনিটির জন্য কেমব্রিজ IGCSE এবং AS ও A লেভেল শিক্ষা।',
-      ctaApply: '২০২৬-২৭ এর জন্য আবেদন করুন',
-      ctaTour: 'ক্যাম্পাস ভিজিট বুক করুন',
-      cardAdmissionsTitle: 'ভর্তি চলছে ২০২৬-২৭',
-      cardAdmissionsBody: 'নতুন শিক্ষার্থীদের একটি সংক্ষিপ্ত ভর্তি পরীক্ষা দিতে হয়। প্রস্তুতির জন্য ডাউনলোড করুন।',
-      cardAdmissionsCta: 'ভর্তি পরীক্ষার PDF ডাউনলোড',
-      cardScholarshipTitle: 'নিয়মিত IGCSE শিক্ষার্থীদের জন্য মেধা বৃত্তি',
-      cardScholarshipBody: 'ধারাবাহিক একাডেমিক সাফল্যের স্বীকৃতি।',
-      cardScholarshipCta: 'আরও জানুন',
-    },
-  },
+  en: getMessages('en'),
+  ar: getMessages('ar'),
+  bn: getMessages('bn'),
 }
 
 export const NAV_ITEMS: NavKey[] = [
