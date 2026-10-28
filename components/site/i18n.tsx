@@ -1,28 +1,51 @@
 'use client'
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { LOCALES, UI, type Locale } from '@/src/content'
+import {
+  type Locale,
+  LOCALE_CONFIG,
+  getMessages,
+  type Messages,
+} from '@/lib/i18n'
 
 type LocaleContextValue = {
   locale: Locale
   dir: 'ltr' | 'rtl'
-  t: (typeof UI)[Locale]
+  t: Messages
   setLocale: (locale: Locale) => void
 }
 
 const LocaleContext = createContext<LocaleContextValue | null>(null)
 
-export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('en')
-  const dir = LOCALES.find((l) => l.code === locale)?.dir ?? 'ltr'
+export function LocaleProvider({
+  children,
+  initialLocale = 'en',
+}: {
+  children: React.ReactNode
+  initialLocale?: Locale
+}) {
+  const [locale, setLocale] = useState<Locale>(initialLocale)
+  const dir = LOCALE_CONFIG[locale]?.dir ?? 'ltr'
 
-  // Keep <html lang/dir> in sync so fonts, screen readers and RTL layout follow the choice.
+  // Keep <html lang/dir> in sync when locale changes
   useEffect(() => {
     document.documentElement.lang = locale
     document.documentElement.dir = dir
   }, [locale, dir])
 
-  const value = useMemo(() => ({ locale, dir, t: UI[locale], setLocale }), [locale, dir])
+  useEffect(() => {
+    setLocale(initialLocale)
+  }, [initialLocale])
+
+  const value = useMemo(
+    () => ({
+      locale,
+      dir,
+      t: getMessages(locale),
+      setLocale,
+    }),
+    [locale, dir]
+  )
 
   return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
 }

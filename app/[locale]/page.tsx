@@ -1,4 +1,4 @@
-import { LocaleProvider } from '@/components/site/i18n'
+import { notFound } from 'next/navigation'
 import { SiteHeader } from '@/components/site/header'
 import { Hero } from '@/components/site/hero'
 import { StatsBand, TrustStrip } from '@/components/site/trust-stats'
@@ -11,10 +11,40 @@ import { NewsSection } from '@/components/site/news'
 import { VoicesSection } from '@/components/site/voices'
 import { EnquirySection } from '@/components/site/enquiry'
 import { FloatingActions, SiteFooter } from '@/components/site/footer'
+import { LocalePlaceholder } from '@/components/site/locale-placeholder'
+import { isLocale, type Locale } from '@/lib/i18n'
 
-export default function HomePage() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale: rawLocale } = await params
+
+  if (!isLocale(rawLocale)) {
+    notFound()
+  }
+
+  const locale = rawLocale as Locale
+
+  if (locale === 'ar' || locale === 'bn') {
+    return (
+      <>
+        <div id="top" />
+        <SiteHeader />
+        <LocalePlaceholder locale={locale} />
+        <main id="main">
+          <Hero />
+        </main>
+        <SiteFooter />
+        <FloatingActions />
+      </>
+    )
+  }
+
+  // English: full unchanged homepage
   return (
-    <LocaleProvider>
+    <>
       <div id="top" />
       <SiteHeader />
       <main id="main">
@@ -32,6 +62,6 @@ export default function HomePage() {
       </main>
       <SiteFooter />
       <FloatingActions />
-    </LocaleProvider>
+    </>
   )
 }

@@ -1,32 +1,22 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Fraunces, Plus_Jakarta_Sans, IBM_Plex_Sans_Arabic, Hind_Siliguri } from 'next/font/google'
+import { notFound } from 'next/navigation'
 import { ASSETS } from '@/src/assets'
 import { CONTACT, LINKS } from '@/src/links'
 import { SCHOOL } from '@/src/content'
-import './globals.css'
+import {
+  SUPPORTED_LOCALES,
+  isLocale,
+  getLocaleDirection,
+  type Locale,
+} from '@/lib/i18n'
+import { getRouteFontVariables } from '@/components/site/locale-fonts'
+import { LocaleProvider } from '@/components/site/i18n'
+import '../globals.css'
 
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-fraunces',
-  display: 'swap',
-  axes: ['opsz', 'SOFT'],
-})
-const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
-const plexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ['arabic'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-plex-arabic',
-  display: 'swap',
-  preload: false,
-})
-const hind = Hind_Siliguri({
-  subsets: ['bengali'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-hind',
-  display: 'swap',
-  preload: false,
-})
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
+}
 
 const TITLE = 'Bangladesh International School English Section, Jeddah | Cambridge IGCSE & A Level'
 const DESCRIPTION =
@@ -91,19 +81,35 @@ const jsonLd = {
   sameAs: [LINKS.facebook.href, LINKS.youtube.href, LINKS.instagram.href],
 }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
+  const { locale: rawLocale } = await params
+
+  if (!isLocale(rawLocale)) {
+    notFound()
+  }
+
+  const locale = rawLocale as Locale
+  const dir = getLocaleDirection(locale)
+  const fontVariables = getRouteFontVariables(locale)
+
   return (
     <html
-      lang="en"
-      dir="ltr"
-      className={`${fraunces.variable} ${jakarta.variable} ${plexArabic.variable} ${hind.variable} bg-background`}
+      lang={locale}
+      dir={dir}
+      className={`${fontVariables} bg-background`}
     >
       <body className="antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <LocaleProvider initialLocale={locale}>{children}</LocaleProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

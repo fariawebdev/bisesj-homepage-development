@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "syllabus": "Syllabus",
+    "academicCalendar": "Academic Calendar",
+    "news": "News",
+    "jobVacancy": "Job Vacancy",
+    "contact": "Contact"
+  },
+  "applyNow": "Apply Now",
+  "announcement": "Admissions open for Academic Year 2026-27, Apply today",
+  "newTab": "(opens in a new tab)",
+  "menu": "Open menu",
+  "close": "Close menu",
+  "call": "Call",
+  "whatsapp": "WhatsApp",
+  "backToTop": "Back to top",
+  "hero": {
+    "eyebrow": "Established 1993 · Cambridge International School · Jeddah",
+    "title": ["Rooted in our culture.", "Ready for the world."],
+    "sub": "Cambridge IGCSE and AS & A Level education for Jeddah's Bangladeshi and international community.",
+    "ctaApply": "Apply for 2026-27",
+    "ctaTour": "Book a Campus Tour",
+    "cardAdmissionsTitle": "Admissions Open 2026-27",
+    "cardAdmissionsBody": "Newcomers sit a short admission test. Download the paper to prepare.",
+    "cardAdmissionsCta": "Download Admission Test PDF",
+    "cardScholarshipTitle": "Merit Scholarship for Regular IGCSE Students",
+    "cardScholarshipBody": "Recognising consistent academic excellence.",
+    "cardScholarshipCta": "Learn more"
+  },
+  "placeholder": {
+    "badge": "Under Development",
+    "title": "Multilingual Preview",
+    "description": "This language route is currently in preview scaffolding mode for development."
+  }
+}
