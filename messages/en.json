@@ -1,8 +1,10 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About Us",
+    "about": "About",
+    "admission": "Admission",
     "syllabus": "Syllabus",
+    "routine": "Routine",
     "academicCalendar": "Academic Calendar",
     "news": "News",
     "jobVacancy": "Job Vacancy",

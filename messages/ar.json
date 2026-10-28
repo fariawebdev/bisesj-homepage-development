@@ -1,8 +1,10 @@
 {
   "nav": {
     "home": "الرئيسية",
-    "about": "من نحن",
+    "about": "عن المدرسة",
+    "admission": "القبول",
     "syllabus": "المناهج",
+    "routine": "الجدول الدراسي",
     "academicCalendar": "التقويم الأكاديمي",
     "news": "الأخبار",
     "jobVacancy": "الوظائف الشاغرة",
