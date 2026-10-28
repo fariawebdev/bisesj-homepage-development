@@ -3,7 +3,7 @@ import { SITE_CONFIG } from '@/lib/site-config'
 import { CONTACT, LINKS } from '@/src/links'
 import { STATS, FOOTER } from '@/src/content'
 
-describe('Site Configuration & Stats Strip (S1-04)', () => {
+describe('Site Configuration & Stats Strip (S1-04, S1-10)', () => {
   it('has correct official phone details', () => {
     expect(SITE_CONFIG.contact.officialPhone.display).toBe('+966 12 664 7079')
     expect(SITE_CONFIG.contact.officialPhone.href).toBe('tel:+966126647079')
@@ -20,6 +20,12 @@ describe('Site Configuration & Stats Strip (S1-04)', () => {
   it('has correct admissions and general contact email', () => {
     expect(SITE_CONFIG.contact.admissionsEmail.address).toBe('admissions-info@bisesjsa.com')
     expect(SITE_CONFIG.contact.generalEmail.address).toBe('principal@bisesjsa.com')
+  })
+
+  it('has verified campus street address from pages/contact.md', () => {
+    expect(SITE_CONFIG.contact.address).toBe(
+      'Othman Ibn Affan, Al Sharafeyah, Jeddah 23218, Kingdom of Saudi Arabia'
+    )
   })
 
   it('has correct statistics without placeholder text', () => {

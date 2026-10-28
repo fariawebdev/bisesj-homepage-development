@@ -31,7 +31,7 @@ export const SITE_CONFIG = {
       address: 'admissions-info@bisesjsa.com',
       href: 'mailto:admissions-info@bisesjsa.com',
     },
-    address: 'Al-Rehab District, Jeddah, Kingdom of Saudi Arabia',
+    address: 'Othman Ibn Affan, Al Sharafeyah, Jeddah 23218, Kingdom of Saudi Arabia',
     mapUrl: 'https://maps.app.goo.gl/b1y9wDWiEVpdr21BA',
   },
 
