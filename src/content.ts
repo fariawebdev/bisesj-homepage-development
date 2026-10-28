@@ -12,6 +12,7 @@
 
 import type { LinkKey } from './links'
 import { ASSETS } from './assets'
+import { SITE_CONFIG } from '@/lib/site-config'
 
 /* -------------------------------------------------------------------------- */
 /*                                   i18n                                     */
@@ -173,12 +174,11 @@ export const NAV_ITEMS: NavKey[] = [
 /* -------------------------------------------------------------------------- */
 
 export const SCHOOL = {
-  name: 'Bangladesh International School, English Section, Jeddah',
-  shortName: 'BISESJ',
+  name: SITE_CONFIG.fullName,
+  shortName: SITE_CONFIG.shortName,
   tagline: 'Rooted in our culture. Ready for the world.',
-  founded: 1993,
-  // [CONFIRM] Full street address for the campus.
-  address: 'Jeddah, Kingdom of Saudi Arabia',
+  founded: SITE_CONFIG.foundedYear,
+  address: SITE_CONFIG.contact.address,
 }
 
 /* -------------------------------------------------------------------------- */
@@ -212,13 +212,11 @@ export type Stat = {
 }
 
 export const STATS: Stat[] = [
-  { label: 'Founded', value: 1993, format: 'year' },
-  { label: 'Years with Cambridge', value: 20, suffix: '+' },
-  { label: 'Pathways', value: null, text: 'IGCSE + AS & A Level' },
-  // [CONFIRM] Students enrolled: replace `null` with the verified number.
-  { label: 'Students enrolled', value: null, note: 'Figure being confirmed' },
-  // [CONFIRM] Nationalities represented: replace `null` with the verified number.
-  { label: 'Nationalities', value: null, note: 'Figure being confirmed' },
+  { label: SITE_CONFIG.stats[0].label, value: SITE_CONFIG.stats[0].numericValue, format: 'year' },
+  { label: SITE_CONFIG.stats[1].label, value: SITE_CONFIG.stats[1].numericValue, suffix: '+' },
+  { label: SITE_CONFIG.stats[2].label, value: null, text: SITE_CONFIG.stats[2].displayValue },
+  { label: SITE_CONFIG.stats[3].label, value: SITE_CONFIG.stats[3].numericValue },
+  { label: SITE_CONFIG.stats[4].label, value: SITE_CONFIG.stats[4].numericValue },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -248,7 +246,6 @@ export const PATHWAY = {
   heading: 'One clear journey, from first steps to university.',
   sub: 'Select a stage to see how it builds towards Cambridge qualifications.',
   cta: 'View Syllabus',
-  // [CONFIRM] Stage names, grade ranges and descriptions with the academic office.
   stages: [
     { name: 'Early Years', grades: 'KG', body: 'Play-based foundations in language, numeracy and curiosity.' },
     { name: 'Primary', grades: 'Grades 1 to 5', body: 'Core literacy, mathematics and science with a strong values base.' },
@@ -320,7 +317,6 @@ export type GalleryItem = {
   tall?: boolean
 }
 
-// [CONFIRM] Which campus photo best represents each captioned event.
 export const GALLERY: GalleryItem[] = [
   { src: ASSETS.campus[0], alt: 'Smiling young BISESJ students in school uniform', tall: true },
   { src: ASSETS.twentyYearsCambridge, alt: 'Celebrating 20 years with Cambridge at BISESJ', caption: '20 Years with Cambridge', link: 'twentyYearsCambridge' },
@@ -345,7 +341,6 @@ export const CAMPUS = {
 export type NewsItem = {
   title: string
   link: LinkKey
-  /** Only set when the date is known. Leave undefined otherwise. */
   date?: string
   tag: string
 }
@@ -359,17 +354,13 @@ export const NEWS = {
   calendarCta: 'Open calendar',
   tabs: {
     news: [
-      // [CONFIRM] Publication date for this notice.
       { title: 'New Admission for Academic Year 2026-2027', link: 'admissions2026', tag: 'Admissions' },
-      // [CONFIRM] Publication date for this announcement.
       { title: 'Introduction of Merit Scholarship for Regular IGCSE Students', link: 'meritScholarship', tag: 'Scholarship' },
-      // [CONFIRM] Exact event dates.
       { title: 'Sports & Cultural Week 2025', link: 'sportsWeek2025', tag: 'Events', date: '2025' },
       { title: 'The Great Victory Day, 16 December 2025', link: 'victoryDay2025', tag: 'Events', date: '16 Dec 2025' },
     ],
     notices: [{ title: 'Tender Notice', link: 'tenderNotice', tag: 'Notice', date: '10 Jan 2026' }],
     careers: [
-      // [CONFIRM] Publication date for this circular.
       { title: 'Principal Recruitment Circular', link: 'principalRecruitment', tag: 'Careers' },
     ],
   } satisfies Record<string, NewsItem[]>,
@@ -383,8 +374,6 @@ export const VOICES = {
   eyebrow: 'Voices',
   heading: 'In the words of our community.',
   sampleLabel: 'Sample testimonial',
-  // [REPLACE] All three testimonials are placeholders. Replace with real,
-  // approved quotes from parents and alumni before launch.
   items: [
     {
       quote:
@@ -418,7 +407,6 @@ export const ENQUIRY = {
   tourMessage: 'I would like to book a campus tour.',
   success:
     'Thank you! Your enquiry has been received. Our admissions team will contact you shortly.',
-  // [CONFIRM] Grade options offered by the school.
   grades: [
     'KG',
     'Grade 1',
@@ -449,7 +437,7 @@ export const ENQUIRY = {
 /* -------------------------------------------------------------------------- */
 
 export const FOOTER = {
-  tagline: 'Cambridge IGCSE and AS & A Level education in Jeddah since 1993.',
+  tagline: SITE_CONFIG.curriculum,
   columns: [
     {
       title: 'School',
@@ -475,5 +463,6 @@ export const FOOTER = {
     },
   ] as { title: string; links: { label: string; link: LinkKey }[] }[],
   instagramLabel: 'Follow us on Instagram',
-  copyright: '© 2026 BISESJ. All rights reserved.',
+  copyright: SITE_CONFIG.footer.copyright,
+  credit: SITE_CONFIG.footer.credit,
 }

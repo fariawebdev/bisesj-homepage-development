@@ -6,6 +6,7 @@ import { ArrowUp, ArrowUpRight, MessageCircle, Phone } from 'lucide-react'
 import { ASSETS } from '@/src/assets'
 import { CONTACT, type LinkKey } from '@/src/links'
 import { FOOTER, GALLERY, SCHOOL } from '@/src/content'
+import { SITE_CONFIG } from '@/lib/site-config'
 import { useLocale } from './i18n'
 import { SafeImage } from './safe-image'
 import { SmartLink } from './smart-link'
@@ -13,17 +14,17 @@ import { SmartLink } from './smart-link'
 const SOCIALS: { key: LinkKey; label: string; path: string }[] = [
   {
     key: 'facebook',
-    label: 'BISESJ on Facebook',
+    label: `${SITE_CONFIG.shortName} on Facebook`,
     path: 'M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v1.8H7.6v3.3h2.8V22H14V11.8h2.8l.4-3.3H14Z',
   },
   {
     key: 'youtube',
-    label: 'BISESJ on YouTube',
+    label: `${SITE_CONFIG.shortName} on YouTube`,
     path: 'M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15V9l5.8 3-5.8 3Z',
   },
   {
     key: 'instagram',
-    label: 'BISESJ on Instagram',
+    label: `${SITE_CONFIG.shortName} on Instagram`,
     path: 'M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z',
   },
 ]
@@ -31,7 +32,7 @@ const SOCIALS: { key: LinkKey; label: string; path: string }[] = [
 export function SiteFooter() {
   return (
     <footer className="bg-forest-deep pb-28 text-primary-foreground md:pb-0">
-      {/* Instagram preview strip. [REPLACE] with a live feed or curated posts. */}
+      {/* Instagram preview strip */}
       <div className="border-b border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-12 md:flex-row md:items-center md:px-6">
           <SmartLink
@@ -99,9 +100,13 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-primary-foreground/60 sm:flex-row sm:justify-between md:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between md:px-6">
           <p>{FOOTER.copyright}</p>
-          <p>Cambridge International School · Jeddah, Saudi Arabia</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <span>{FOOTER.tagline}</span>
+            <span aria-hidden="true">·</span>
+            <span className="font-semibold text-gold-soft">{SITE_CONFIG.footer.credit}</span>
+          </div>
         </div>
       </div>
     </footer>
@@ -142,7 +147,7 @@ export function FloatingActions() {
         </AnimatePresence>
         <SmartLink
           to="whatsapp"
-          label={`Chat with BISESJ on ${t.whatsapp}`}
+          label={`Chat with ${SITE_CONFIG.shortName} on ${t.whatsapp}`}
           className="inline-flex size-14 items-center justify-center rounded-full bg-[#1F8F4E] text-white shadow-lift transition-transform hover:scale-105"
         >
           <MessageCircle aria-hidden="true" className="size-6" />
