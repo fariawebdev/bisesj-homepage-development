@@ -43,13 +43,13 @@ export const SITE_CONFIG = {
 
   stats: [
     {
-      label: 'Founded 1993',
+      label: 'Founded',
       displayValue: '1993',
       numericValue: 1993,
       format: 'year' as const,
     },
     {
-      label: '20+ years with Cambridge',
+      label: 'Years with Cambridge',
       displayValue: '20+',
       numericValue: 20,
       suffix: '+',

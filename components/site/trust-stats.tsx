@@ -59,12 +59,13 @@ export function StatsBand() {
             >
               <dt className="order-2 text-sm font-medium text-muted-foreground">{s.label}</dt>
               <dd className="order-1 font-serif text-4xl leading-none tracking-tight text-primary md:text-5xl">
-                {s.value !== null ? (
+                {s.format === 'year' ? (
+                  <span className="tabular-nums">{s.value}</span>
+                ) : s.value !== null ? (
                   <CountUp
                     to={s.value}
-                    from={s.format === 'year' ? 1900 : 0}
+                    from={Math.floor(s.value * 0.85)}
                     suffix={s.suffix}
-                    grouping={s.format !== 'year'}
                   />
                 ) : s.text ? (
                   <span className="block text-2xl leading-tight md:text-[1.6rem]">{s.text}</span>
