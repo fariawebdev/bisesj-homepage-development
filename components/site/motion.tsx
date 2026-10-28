@@ -84,7 +84,7 @@ export function CountUp({
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
   const reduce = useReducedMotion()
-  const start = from ?? 0
+  const start = from ?? Math.floor(to * 0.85)
   const [value, setValue] = useState(to)
 
   useEffect(() => {

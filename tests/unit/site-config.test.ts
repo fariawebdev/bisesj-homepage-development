@@ -29,10 +29,10 @@ describe('Site Configuration & Stats Strip (S1-04, S1-10)', () => {
   })
 
   it('has correct statistics without placeholder text', () => {
-    expect(STATS[0].label).toBe('Founded 1993')
+    expect(STATS[0].label).toBe('Founded')
     expect(STATS[0].value).toBe(1993)
 
-    expect(STATS[1].label).toBe('20+ years with Cambridge')
+    expect(STATS[1].label).toBe('Years with Cambridge')
     expect(STATS[1].value).toBe(20)
 
     expect(STATS[3].label).toBe('Students enrolled')
