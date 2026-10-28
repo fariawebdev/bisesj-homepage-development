@@ -4,10 +4,6 @@
  * - `UI` holds translated strings (EN / AR / BN) for the nav, hero and CTAs.
  * - Everything else is English-only for now; add `ar` / `bn` keys as the
  *   translation team delivers them.
- *
- * Markers:
- *   [CONFIRM] value must be verified by the school administration
- *   [REPLACE] placeholder content to be swapped for real material
  */
 
 import type { LinkKey } from './links'
@@ -223,9 +219,6 @@ export const GALLERY: GalleryItem[] = [
 export const CAMPUS = {
   eyebrow: 'Campus Life',
   heading: 'Where learning, culture and friendship meet.',
-  ctaHeading: "Let's make your next campus tour unforgettable.",
-  ctaBody: 'Walk our corridors, meet our teachers and see BISESJ in action.',
-  cta: 'Book a Campus Tour',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -298,7 +291,6 @@ export const ENQUIRY = {
   eyebrow: 'Enquiry & Contact',
   heading: 'Seeking more information on education and schools? Let’s talk.',
   sub: 'Send us a short message and our admissions team will be in touch.',
-  tourMessage: 'I would like to book a campus tour.',
   success:
     'Thank you! Your enquiry has been received. Our admissions team will contact you shortly.',
   grades: [

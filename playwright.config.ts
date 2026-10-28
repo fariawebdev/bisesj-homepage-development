@@ -25,6 +25,6 @@ export default defineConfig({
     command: 'node .next/standalone/server.js',
     url: 'http://localhost:3000',
     reuseExistingServer: true,
-    timeout: 30000,
+    timeout: 60000,
   },
 })

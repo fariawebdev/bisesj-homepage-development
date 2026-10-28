@@ -20,10 +20,12 @@
   "backToTop": "Back to top",
   "hero": {
     "eyebrow": "Established 1993 · Cambridge International School · Jeddah",
-    "title": ["Rooted in our culture.", "Ready for the world."],
+    "title": [
+      "Rooted in our culture.",
+      "Ready for the world."
+    ],
     "sub": "Cambridge IGCSE and AS & A Level education for Jeddah's Bangladeshi and international community.",
     "ctaApply": "Apply for 2026-27",
-    "ctaTour": "Book a Campus Tour",
     "cardAdmissionsTitle": "Admissions Open 2026-27",
     "cardAdmissionsBody": "Newcomers sit a short admission test. Download the paper to prepare.",
     "cardAdmissionsCta": "Download Admission Test PDF",
