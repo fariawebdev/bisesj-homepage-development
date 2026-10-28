@@ -7,8 +7,31 @@ __v0_jsx-dev-runtime.ts
 .v0-trash/
 .vercel/
 
-# Environment variables
+# Environment variables & secrets
+.env
 .env*.local
+.env.production
+.env.development
+
+# Database & SQLite files
+*.db
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Uploads directory
+/uploads
+/public/uploads
+
+# Test & coverage artifacts
+playwright-report/
+test-results/
+coverage/
+.coverage/
+
+# TypeScript & build cache
+tsconfig.tsbuildinfo
 
 # Common ignores
 node_modules
