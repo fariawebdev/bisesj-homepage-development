@@ -8,7 +8,7 @@ import {
   type Locale,
 } from './lib/i18n'
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Ignore static assets, api routes, and files with extensions
