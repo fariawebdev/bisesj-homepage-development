@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
-import { ArrowUpRight, CheckCircle2, Loader2, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { useId, useRef, useState } from 'react'
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { CONTACT } from '@/src/links'
 import { ENQUIRY, SCHOOL } from '@/src/content'
+import { SITE_CONFIG } from '@/lib/site-config'
 import { Reveal } from './motion'
 import { SectionHeading } from './section-heading'
 import { SmartLink } from './smart-link'
@@ -33,7 +34,7 @@ function validate(v: Values): Errors {
 export function EnquirySection() {
   const [values, setValues] = useState<Values>(EMPTY)
   const [errors, setErrors] = useState<Errors>({})
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle')
+  const [status, setStatus] = useState<'idle' | 'notice'>('idle')
   const messageRef = useRef<HTMLTextAreaElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -41,10 +42,10 @@ export function EnquirySection() {
     const next = { ...values, [key]: e.target.value }
     setValues(next)
     if (errors[key]) setErrors((prev) => ({ ...prev, [key]: validate(next)[key] }))
-    if (status === 'success') setStatus('idle')
+    if (status === 'notice') setStatus('idle')
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const found = validate(values)
     setErrors(found)
@@ -54,16 +55,9 @@ export function EnquirySection() {
       return
     }
 
-    setStatus('sending')
-    // TODO: Replace the simulated delay with a real backend call (e.g. POST to an API route, email
-    // service or CRM). Handle network errors and show an error state.
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setStatus('success')
-    setValues(EMPTY)
-    setErrors({})
+    // Sprint 5: Real submission handler will connect to backend API and database.
+    setStatus('notice')
   }
-
-  const sending = status === 'sending'
 
   return (
     <section id="enquiry" aria-labelledby="enquiry-title" className="scroll-mt-28 bg-background py-20 md:py-28">
@@ -120,24 +114,61 @@ export function EnquirySection() {
                 )}
               </Field>
 
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <button
-                  type="submit"
-                  disabled={sending}
-                  aria-disabled={sending}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-forest-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:cursor-not-allowed disabled:opacity-70"
-                >
-                  {sending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
-                  {sending ? ENQUIRY.sending : ENQUIRY.submit}
-                </button>
-                <p role="status" aria-live="polite" className="text-sm">
-                  {status === 'success' && (
-                    <span className="inline-flex items-start gap-2 font-medium text-primary">
-                      <CheckCircle2 aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-gold" />
-                      {ENQUIRY.success}
-                    </span>
-                  )}
-                </p>
+              <div className="flex flex-col gap-4">
+                <div>
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-forest-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    {ENQUIRY.submit}
+                  </button>
+                </div>
+                {status === 'notice' && (
+                  <div
+                    id="enquiry-status-notice"
+                    role="status"
+                    aria-live="polite"
+                    className="flex flex-col gap-3 rounded-2xl border border-primary/20 bg-primary/5 p-5 text-sm text-foreground"
+                  >
+                    <p className="font-medium leading-relaxed">
+                      Online enquiries are opening soon. Please call{' '}
+                      <a
+                        href={SITE_CONFIG.contact.officialPhone.href}
+                        className="font-semibold text-primary underline hover:text-gold"
+                      >
+                        {SITE_CONFIG.contact.officialPhone.display}
+                      </a>{' '}
+                      or message us on WhatsApp{' '}
+                      <a
+                        href={SITE_CONFIG.contact.whatsapp.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline hover:text-gold"
+                      >
+                        {SITE_CONFIG.contact.whatsapp.display}
+                      </a>
+                      .
+                    </p>
+                    <div className="flex flex-wrap gap-3 pt-1">
+                      <a
+                        href={SITE_CONFIG.contact.officialPhone.href}
+                        className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-colors hover:bg-forest-deep"
+                      >
+                        <Phone aria-hidden="true" className="size-3.5" />
+                        Call {SITE_CONFIG.contact.officialPhone.display}
+                      </a>
+                      <a
+                        href={SITE_CONFIG.contact.whatsapp.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-gold-soft"
+                      >
+                        <MessageCircle aria-hidden="true" className="size-3.5" />
+                        Message on WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
             </form>
           </Reveal>
