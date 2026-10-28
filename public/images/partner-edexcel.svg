@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" fill="none">
+  <rect width="200" height="60" rx="8" fill="white" />
+  <path d="M24 16C17.373 16 12 21.373 12 28C12 34.627 17.373 40 24 40C30.627 40 36 34.627 36 28C36 21.373 30.627 16 24 16ZM24 35C20.134 35 17 31.866 17 28C17 24.134 20.134 21 24 21C27.866 21 31 24.134 31 28C31 31.866 27.866 35 24 35Z" fill="#005B94"/>
+  <circle cx="28" cy="24" r="5" fill="#00A3E0"/>
+  <text x="44" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#005B94">Pearson</text>
+  <text x="44" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#555555">Edexcel</text>
+</svg>

@@ -17,7 +17,7 @@ export const LINKS = {
 
   about: { href: 'https://bisesjsa.com/about-us/' },
   syllabus: { href: 'https://bisesjsa.com/syllabus/' },
-  academicCalendar: { href: 'https://bisesjsa.com/academic-calendar/' },
+  academicCalendar: { href: '/documents/academic-calendar-2026-2027.pdf', internal: true },
   news: { href: 'https://bisesjsa.com/category/notice/https-bisesjsa-com-tender-notice/' },
   jobVacancy: { href: 'https://bisesjsa.com/category/job-vacancy/' },
   contact: { href: 'https://bisesjsa.com/contact/' },
@@ -25,7 +25,16 @@ export const LINKS = {
 
   admissions2026: { href: 'https://bisesjsa.com/new-admission-for-the-academic-year-2026-2027/' },
   admissionTestPdf: {
-    href: 'https://bisesjsa.com/wp-content/uploads/2026/04/Admission-Test-for-Newcomers-2026-27.pdf',
+    href: '/documents/admission-test-for-newcomers-2026-27.pdf',
+    internal: true,
+  },
+  tuitionFeeBangladeshi: {
+    href: '/documents/tuition-fee-structure-bangladeshi-2026-2027.pdf',
+    internal: true,
+  },
+  tuitionFeeForeigner: {
+    href: '/documents/tuition-fee-structure-foreigner-2026-2027.pdf',
+    internal: true,
   },
   meritScholarship: {
     href: 'https://bisesjsa.com/introduction-of-merit-scholarship-for-regular-igcse-students/',
