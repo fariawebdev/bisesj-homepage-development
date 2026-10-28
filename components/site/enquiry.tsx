@@ -158,7 +158,6 @@ export function EnquirySection() {
               </ContactRow>
               <div className="gold-rule opacity-40" />
               <ContactRow icon={<MapPin aria-hidden="true" className="size-5" />} label="Address">
-                {/* [CONFIRM] Replace with the full campus street address. */}
                 <span>{SCHOOL.address}</span>
               </ContactRow>
               <SmartLink

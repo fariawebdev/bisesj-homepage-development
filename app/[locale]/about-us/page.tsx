@@ -57,7 +57,7 @@ export default function AboutUsPage() {
             </div>
             <h3 className="mt-4 font-bold text-foreground">Inclusive Culture</h3>
             <p className="mt-2 text-xs text-muted-foreground">
-              Safe, modern campus in Al-Rehab district fostering moral character and global citizenship.
+              Safe, modern campus in Al Sharafeyah district fostering moral character and global citizenship.
             </p>
           </div>
         </div>
