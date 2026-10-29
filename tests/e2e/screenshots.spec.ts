@@ -8,8 +8,8 @@ const VIEWPORTS = [
   { width: 1280, height: 900, name: 'home-1280px.png' },
 ]
 
-test.describe('S1-09 Homepage Responsive Screenshots', () => {
-  const outputDir = path.resolve(process.cwd(), 'docs/qa/sprint-1')
+test.describe('S2-04 Homepage Responsive Screenshots', () => {
+  const outputDir = path.resolve(process.cwd(), 'docs/qa/sprint-2')
 
   test.beforeAll(() => {
     if (!fs.existsSync(outputDir)) {

@@ -47,15 +47,20 @@ export function Hero() {
         className="absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_15%_85%,rgb(201_162_75/0.22),transparent_70%)]"
       />
 
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 pb-16 md:px-6 md:pb-24 lg:grid-cols-12 lg:items-end">
+      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 pb-28 md:px-6 md:pb-24 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
-          <motion.p
+          <motion.div
             {...fadeUp(0.1)}
-            className="inline-flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-soft"
+            className="flex flex-col gap-1.5"
           >
-            <span aria-hidden="true" className="h-px w-8 bg-gold" />
-            {h.eyebrow}
-          </motion.p>
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-soft">
+              {h.eyebrowLine1}
+            </span>
+            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-soft">
+              <span aria-hidden="true" className="h-px w-8 bg-gold" />
+              {h.eyebrowLine2}
+            </span>
+          </motion.div>
 
           <h1
             id="hero-title"

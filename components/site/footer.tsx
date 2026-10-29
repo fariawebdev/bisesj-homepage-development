@@ -99,7 +99,7 @@ export function SiteFooter() {
         </nav>
       </div>
 
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/10 pb-24 md:pb-0">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between md:px-6">
           <p>{FOOTER.copyright}</p>
           <div className="flex flex-wrap items-center gap-2">
