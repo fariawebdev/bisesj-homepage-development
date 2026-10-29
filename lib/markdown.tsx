@@ -33,7 +33,8 @@ function renderInline(text: string): React.ReactNode[] {
       // Link: [text](href)
       const linkText = match[2]
       const href = match[3]
-      const isInternal = href.startsWith('/') || href.startsWith('#')
+      const isPdfOrDoc = href.endsWith('.pdf') || href.startsWith('/documents/')
+      const isInternal = (href.startsWith('/') || href.startsWith('#')) && !isPdfOrDoc
       if (isInternal) {
         parts.push(
           <Link key={match.index} href={href} className="text-primary underline font-medium hover:text-gold transition-colors">

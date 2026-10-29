@@ -4,7 +4,6 @@ import { SITE_CONFIG } from '../../lib/site-config'
 test.describe('S2-05: Inner Pages, Locked Routine, Contact Map & Styled 404', () => {
   test('Routine page shows locked state with approved copy and contact button', async ({ page }) => {
     await page.goto('/en/routine')
-    await page.waitForLoadState('networkidle')
 
     const heading = page.locator('h1').first()
     await expect(heading).toContainText('Routine')
@@ -21,7 +20,6 @@ test.describe('S2-05: Inner Pages, Locked Routine, Contact Map & Styled 404', ()
 
   test('Contact page has click-to-load interactive map and parent feedback link', async ({ page }) => {
     await page.goto('/en/contact')
-    await page.waitForLoadState('networkidle')
 
     // Initial state: Google Maps iframe is NOT loaded
     expect(await page.locator('iframe[title*="Google Maps"]').count()).toBe(0)
@@ -45,7 +43,6 @@ test.describe('S2-05: Inner Pages, Locked Routine, Contact Map & Styled 404', ()
 
   test('Parent feedback route displays feedback email and WhatsApp messaging', async ({ page }) => {
     await page.goto('/en/parent-feedback')
-    await page.waitForLoadState('networkidle')
 
     const heading = page.locator('h1').first()
     await expect(heading).toContainText('Parent Feedback & Complaints')
