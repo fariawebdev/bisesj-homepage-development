@@ -3,7 +3,7 @@ import { SITE_CONFIG } from '@/lib/site-config'
 import { CONTACT, LINKS } from '@/lib/links'
 import { STATS, FOOTER } from '@/lib/content'
 
-describe('Site Configuration & Stats Strip (S1-04, S1-10)', () => {
+describe('Site Configuration & Stats Strip (S1-04, S1-10, S2-03)', () => {
   it('has correct official phone details', () => {
     expect(SITE_CONFIG.contact.officialPhone.display).toBe('+966 12 664 7079')
     expect(SITE_CONFIG.contact.officialPhone.href).toBe('tel:+966126647079')
@@ -17,9 +17,19 @@ describe('Site Configuration & Stats Strip (S1-04, S1-10)', () => {
     expect(LINKS.whatsapp.href).toBe('https://wa.me/966567276919')
   })
 
-  it('has correct admissions and general contact email', () => {
+  it('has correct school emails including inquiry, admissions, and feedback (S2-03)', () => {
+    expect(SITE_CONFIG.inquiryEmail).toBe('inquiry@bisesjsa.com')
+    expect(SITE_CONFIG.admissionsEmail).toBe('admissions-info@bisesjsa.com')
+    expect(SITE_CONFIG.feedbackEmail).toBe('feedback@bisesjsa.com')
+
+    expect(SITE_CONFIG.contact.generalEmail.address).toBe('inquiry@bisesjsa.com')
+    expect(SITE_CONFIG.contact.inquiryEmail.address).toBe('inquiry@bisesjsa.com')
     expect(SITE_CONFIG.contact.admissionsEmail.address).toBe('admissions-info@bisesjsa.com')
-    expect(SITE_CONFIG.contact.generalEmail.address).toBe('principal@bisesjsa.com')
+    expect(SITE_CONFIG.contact.feedbackEmail.address).toBe('feedback@bisesjsa.com')
+  })
+
+  it('has routine feature locked by default (S2-03)', () => {
+    expect(SITE_CONFIG.features.routine).toBe('locked')
   })
 
   it('has verified campus street address from pages/contact.md', () => {

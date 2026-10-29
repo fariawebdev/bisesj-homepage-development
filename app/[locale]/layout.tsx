@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { ASSETS } from '@/lib/assets'
 import { CONTACT, LINKS } from '@/lib/links'
 import { SCHOOL } from '@/lib/content'
+import { getRobotsMetadata } from '@/lib/seo'
 import {
   SUPPORTED_LOCALES,
   isLocale,
@@ -52,6 +53,7 @@ export const metadata: Metadata = {
     images: [ASSETS.hero],
   },
   icons: { icon: ASSETS.logo, apple: ASSETS.logo },
+  robots: getRobotsMetadata(),
 }
 
 export const viewport: Viewport = {
