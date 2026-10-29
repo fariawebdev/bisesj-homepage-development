@@ -3,15 +3,27 @@ import Link from 'next/link'
 import { ArrowLeft, Home } from 'lucide-react'
 import { SiteHeader } from './header'
 import { SiteFooter, FloatingActions } from './footer'
+import { MarkdownRenderer, getPageMarkdown } from '@/lib/markdown'
 
 type InnerPageProps = {
   title: string
   subtitle: string
   badge?: string
-  children: React.ReactNode
+  slug?: string
+  markdown?: string
+  children?: React.ReactNode
 }
 
-export function InnerPage({ title, subtitle, badge = 'BISESJ Information', children }: InnerPageProps) {
+export function InnerPage({
+  title,
+  subtitle,
+  badge = 'BISESJ Information',
+  slug,
+  markdown,
+  children,
+}: InnerPageProps) {
+  const content = markdown ?? (slug ? getPageMarkdown(slug) : '')
+
   return (
     <>
       <div id="top" />
@@ -41,7 +53,8 @@ export function InnerPage({ title, subtitle, badge = 'BISESJ Information', child
         </section>
 
         <section className="px-6 py-12 md:py-16">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-5xl space-y-8">
+            {content ? <MarkdownRenderer content={content} /> : null}
             {children}
 
             <div className="mt-12 border-t border-border pt-8">

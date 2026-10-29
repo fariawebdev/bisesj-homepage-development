@@ -28,6 +28,7 @@ export const LINKS = {
   news: { href: '/news', internal: true },
   jobVacancy: { href: '/job-vacancy', internal: true },
   contact: { href: '/contact', internal: true },
+  parentFeedback: { href: '/parent-feedback', internal: true },
 
   // Feature & Message Routes
   chairmanMessage: { href: '/chairmans-message', internal: true },

@@ -1,45 +1,47 @@
 import { InnerPage } from '@/components/site/inner-page'
-import { Clock, CalendarCheck, BookOpen } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/site-config'
+import { Lock, Phone, Mail } from 'lucide-react'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Class Routine & Schedules | BISESJ',
-  description: 'Daily class routine, periods, and section timetables at BISESJ.',
+  description: 'Daily class routine, timetables, and academic period schedules for BISESJ.',
 }
 
 export default function RoutinePage() {
+  const isLocked = SITE_CONFIG.features.routine === 'locked'
+
   return (
     <InnerPage
-      title="Class Routine & Schedules"
-      subtitle="Timetables, daily bell schedules, and class routines for all academic sections."
-      badge="School Operations"
+      slug="routine"
+      title="Class Routine & Timetables"
+      subtitle="Academic period schedules, weekly class routines, and subject timetables."
+      badge="Timetables"
     >
-      <div className="space-y-8">
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
-          <div className="flex items-start gap-4">
-            <div className="rounded-xl bg-forest/10 p-3 text-forest shrink-0">
-              <Clock aria-hidden="true" className="size-8" />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-foreground">Term Routine Overview</h2>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                Class routines and period allocations are formulated at the commencement of each term to optimize student engagement, science lab schedules, and physical education.
-              </p>
-              <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-forest/5 px-4 py-2 text-xs font-semibold text-forest">
-                <CalendarCheck aria-hidden="true" className="size-4" />
-                <span>Daily Assembly: 7:15 AM · Regular Classes Conclude: 1:30 PM</span>
-              </div>
-            </div>
+      {isLocked ? (
+        <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-soft md:p-12 mt-6">
+          <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-forest/10 text-forest">
+            <Lock aria-hidden="true" className="size-7" />
+          </div>
+          <h2 className="mt-4 font-serif text-2xl font-bold text-foreground">Routine Currently Restricted</h2>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-xs font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-forest-deep"
+            >
+              <Phone aria-hidden="true" className="size-3.5" />
+              <span>Contact School Office</span>
+            </Link>
+            <a
+              href={SITE_CONFIG.contact.inquiryEmail.href}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-xs font-semibold text-primary transition-colors hover:bg-muted"
+            >
+              <Mail aria-hidden="true" className="size-3.5" />
+              <span>Email {SITE_CONFIG.inquiryEmail}</span>
+            </a>
           </div>
         </div>
-
-        <div className="rounded-2xl border border-dashed border-border bg-card/40 p-8 text-center">
-          <BookOpen aria-hidden="true" className="mx-auto size-10 text-muted-foreground/60" />
-          <h3 className="mt-4 text-base font-semibold text-foreground">Section Timetables</h3>
-          <p className="mt-1 text-sm text-muted-foreground max-w-md mx-auto">
-            Individual class and section timetable PDFs for the current academic session will be downloadable from this page.
-          </p>
-        </div>
-      </div>
+      ) : null}
     </InnerPage>
   )
 }

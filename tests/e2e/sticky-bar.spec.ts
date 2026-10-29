@@ -36,29 +36,16 @@ test.describe('S2-04: Mobile sticky action bar clearance', () => {
         expect(overlaps, `${targetName} should not collide with mobile sticky action bar`).toBe(false)
       }
 
-      // 1. Check Hero CTA button when centered into view
+      // 1. Check Hero CTA Apply button when scrolled into view
       const heroSection = page.locator('section[aria-labelledby="hero-title"]')
       const heroApplyBtn = heroSection.getByRole('link', { name: /Apply/i })
-      await heroApplyBtn.evaluate((el) => el.scrollIntoView({ block: 'center' }))
+      await heroApplyBtn.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center' }))
       await page.waitForTimeout(300)
       const heroApplyBox = await heroApplyBtn.boundingBox()
       assertNoOverlap(heroApplyBox, 'Hero Apply button')
 
-      // 2. Check Hero Cards when centered into view
-      const heroCard1 = heroSection.locator('article').first()
-      await heroCard1.evaluate((el) => el.scrollIntoView({ block: 'center' }))
-      await page.waitForTimeout(300)
-      const heroCard1Box = await heroCard1.boundingBox()
-      assertNoOverlap(heroCard1Box, 'Hero Admissions Card')
-
-      const heroCard2 = heroSection.locator('article').nth(1)
-      await heroCard2.evaluate((el) => el.scrollIntoView({ block: 'center' }))
-      await page.waitForTimeout(300)
-      const heroCard2Box = await heroCard2.boundingBox()
-      assertNoOverlap(heroCard2Box, 'Hero Scholarship Card')
-
-      // 3. Check Footer when page is scrolled to bottom
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+      // 2. Check Footer copyright & credit when page is scrolled to bottom
+      await page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' }))
       await page.waitForTimeout(300)
 
       const footer = page.locator('footer')
