@@ -1,8 +1,8 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { ASSETS } from '@/src/assets'
-import { STATS, TRUST } from '@/src/content'
+import { ASSETS } from '@/lib/assets'
+import { STATS, TRUST } from '@/lib/content'
 import { CountUp, Reveal } from './motion'
 import { SafeImage } from './safe-image'
 

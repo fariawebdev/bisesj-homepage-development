@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight, Award, CalendarCheck, Download } from 'lucide-react'
-import { ASSETS } from '@/src/assets'
+import { ASSETS } from '@/lib/assets'
 import { useLocale } from './i18n'
 import { SmartLink } from './smart-link'
 import { Magnetic } from './motion'

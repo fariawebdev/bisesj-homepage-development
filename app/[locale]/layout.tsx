@@ -1,9 +1,9 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
-import { ASSETS } from '@/src/assets'
-import { CONTACT, LINKS } from '@/src/links'
-import { SCHOOL } from '@/src/content'
+import { ASSETS } from '@/lib/assets'
+import { CONTACT, LINKS } from '@/lib/links'
+import { SCHOOL } from '@/lib/content'
 import {
   SUPPORTED_LOCALES,
   isLocale,

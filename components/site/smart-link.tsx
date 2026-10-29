@@ -2,7 +2,7 @@
 
 import { forwardRef } from 'react'
 import Link from 'next/link'
-import { LINKS, type LinkKey } from '@/src/links'
+import { LINKS, type LinkKey } from '@/lib/links'
 import { useLocale } from './i18n'
 
 type SmartLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {

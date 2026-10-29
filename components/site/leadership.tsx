@@ -1,6 +1,6 @@
 import { ArrowUpRight, Quote } from 'lucide-react'
-import { ASSETS } from '@/src/assets'
-import { LEADERSHIP } from '@/src/content'
+import { ASSETS } from '@/lib/assets'
+import { LEADERSHIP } from '@/lib/content'
 import { Reveal } from './motion'
 import { SafeImage } from './safe-image'
 import { SectionHeading } from './section-heading'

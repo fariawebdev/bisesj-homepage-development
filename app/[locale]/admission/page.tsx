@@ -1,6 +1,6 @@
 import { InnerPage } from '@/components/site/inner-page'
 import { Download, ExternalLink, FileText, GraduationCap, Phone, Mail, MessageCircle } from 'lucide-react'
-import { CONTACT } from '@/src/links'
+import { CONTACT } from '@/lib/links'
 
 export const metadata = {
   title: 'Admissions 2026-2027 | BISESJ',

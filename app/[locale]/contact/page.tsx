@@ -1,6 +1,6 @@
 import { InnerPage } from '@/components/site/inner-page'
 import { MapPin, Phone, Mail, MessageCircle, ExternalLink, Clock } from 'lucide-react'
-import { CONTACT, LINKS } from '@/src/links'
+import { CONTACT, LINKS } from '@/lib/links'
 import { SITE_CONFIG } from '@/lib/site-config'
 
 export const metadata = {

@@ -1,8 +1,8 @@
 'use client'
 
 import { ArrowUpRight, Award, Download, FileText } from 'lucide-react'
-import { ASSETS } from '@/src/assets'
-import { ADMISSIONS } from '@/src/content'
+import { ASSETS } from '@/lib/assets'
+import { ADMISSIONS } from '@/lib/content'
 import { useLocale } from './i18n'
 import { Magnetic, Reveal } from './motion'
 import { SafeImage } from './safe-image'

@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import fs from 'fs'
 import path from 'path'
-import { LINKS } from '@/src/links'
-import { NAV_ITEMS } from '@/src/content'
+import { LINKS } from '@/lib/links'
+import { NAV_ITEMS } from '@/lib/content'
 
 describe('S1-07 Routes and Menu Skeleton', () => {
   it('defines the required menu items in the specified order', () => {

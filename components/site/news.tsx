@@ -4,7 +4,7 @@ import { useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight, CalendarDays } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { NEWS } from '@/src/content'
+import { NEWS } from '@/lib/content'
 import { SectionHeading } from './section-heading'
 import { SmartLink } from './smart-link'
 

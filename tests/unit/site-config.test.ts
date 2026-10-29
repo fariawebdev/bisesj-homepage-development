@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { SITE_CONFIG } from '@/lib/site-config'
-import { CONTACT, LINKS } from '@/src/links'
-import { STATS, FOOTER } from '@/src/content'
+import { CONTACT, LINKS } from '@/lib/links'
+import { STATS, FOOTER } from '@/lib/content'
 
 describe('Site Configuration & Stats Strip (S1-04, S1-10)', () => {
   it('has correct official phone details', () => {
