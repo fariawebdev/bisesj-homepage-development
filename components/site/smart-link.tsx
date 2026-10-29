@@ -2,6 +2,7 @@
 
 import { forwardRef } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { LINKS, type LinkKey } from '@/lib/links'
 import { useLocale } from './i18n'
 
@@ -21,6 +22,7 @@ export const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(function 
   ref,
 ) {
   const { t, locale } = useLocale()
+  const pathname = usePathname()
   const link = LINKS[to]
 
   if ('internal' in link && link.internal) {
@@ -33,6 +35,27 @@ export const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(function 
         <Link
           ref={ref}
           href={localePath}
+          aria-label={label}
+          onClick={onClick}
+          {...rest}
+        >
+          {children}
+        </Link>
+      )
+    }
+
+    const isHomeOnInnerPage =
+      to === 'home' &&
+      pathname &&
+      pathname !== `/${locale}` &&
+      pathname !== `/${locale}/` &&
+      pathname !== '/'
+
+    if (isHomeOnInnerPage) {
+      return (
+        <Link
+          ref={ref}
+          href={`/${locale}`}
           aria-label={label}
           onClick={onClick}
           {...rest}

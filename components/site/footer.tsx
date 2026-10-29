@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUp, ArrowUpRight, MessageCircle, Phone } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react'
 import { ASSETS } from '@/lib/assets'
 import { CONTACT, type LinkKey } from '@/lib/links'
 import { FOOTER, GALLERY, SCHOOL } from '@/lib/content'
@@ -53,24 +53,33 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-6 lg:grid-cols-12">
-        <div className="flex flex-col gap-5 lg:col-span-5">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-16 sm:grid-cols-2 md:px-6 lg:grid-cols-4">
+        {/* Column 1: Identity & Socials */}
+        <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <span className="inline-flex size-14 items-center justify-center rounded-full bg-background p-1">
-              <SafeImage src={ASSETS.logo} alt="" wrapperClassName="size-full rounded-full [background:none]" className="object-contain" />
+              <SafeImage
+                src={ASSETS.logo}
+                alt=""
+                wrapperClassName="size-full rounded-full [background:none]"
+                className="object-contain"
+              />
             </span>
-            <span className="font-serif text-2xl">{SCHOOL.shortName}</span>
+            <div className="flex flex-col leading-tight">
+              <span className="font-serif text-2xl font-bold tracking-tight">{SITE_CONFIG.shortName}</span>
+              <span className="text-xs font-medium text-gold-soft">Est. {SITE_CONFIG.foundedYear}</span>
+            </div>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-primary-foreground/70">
-            {SCHOOL.name}. {FOOTER.tagline}
+          <p className="text-xs leading-relaxed text-primary-foreground/75">
+            {SITE_CONFIG.curriculum}
           </p>
-          <ul className="flex gap-3" aria-label="Social media">
+          <ul className="mt-2 flex gap-3" aria-label="Social media">
             {SOCIALS.map((s) => (
               <li key={s.key}>
                 <SmartLink
                   to={s.key}
                   label={s.label}
-                  className="inline-flex size-11 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold hover:bg-gold hover:text-primary"
+                  className="inline-flex size-10 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold hover:bg-gold hover:text-primary focus-visible:outline-2 focus-visible:outline-gold"
                 >
                   <svg aria-hidden="true" viewBox="0 0 24 24" className="size-4" fill="currentColor">
                     <path d={s.path} />
@@ -81,22 +90,93 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
-          {FOOTER.columns.map((col) => (
-            <div key={col.title}>
-              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">{col.title}</h2>
-              <ul className="mt-5 flex flex-col gap-3">
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    <SmartLink to={l.link} label={l.label} className="text-sm text-primary-foreground/80 hover:text-gold-soft">
-                      {l.label}
-                    </SmartLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </nav>
+        {/* Column 2: Academics */}
+        <div>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">
+            {FOOTER.columns[0].title}
+          </h2>
+          <ul className="mt-5 flex flex-col gap-3">
+            {FOOTER.columns[0].links.map((l) => (
+              <li key={l.label}>
+                <SmartLink
+                  to={l.link}
+                  label={l.label}
+                  className="text-sm text-primary-foreground/80 transition-colors hover:text-gold-soft"
+                >
+                  {l.label}
+                </SmartLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 3: School Life */}
+        <div>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">
+            {FOOTER.columns[1].title}
+          </h2>
+          <ul className="mt-5 flex flex-col gap-3">
+            {FOOTER.columns[1].links.map((l) => (
+              <li key={l.label}>
+                <SmartLink
+                  to={l.link}
+                  label={l.label}
+                  className="text-sm text-primary-foreground/80 transition-colors hover:text-gold-soft"
+                >
+                  {l.label}
+                </SmartLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 4: Contact & Inquiries */}
+        <div>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">
+            {FOOTER.columns[2].title}
+          </h2>
+          <ul className="mt-5 flex flex-col gap-3">
+            {FOOTER.columns[2].links.map((l) => (
+              <li key={l.label}>
+                <SmartLink
+                  to={l.link}
+                  label={l.label}
+                  className="text-sm text-primary-foreground/80 transition-colors hover:text-gold-soft"
+                >
+                  {l.label}
+                </SmartLink>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 flex flex-col gap-2.5 border-t border-white/10 pt-4 text-xs text-primary-foreground/80">
+            <a
+              href={SITE_CONFIG.contact.officialPhone.href}
+              className="inline-flex items-center gap-2 transition-colors hover:text-gold-soft"
+              aria-label={`Call ${SITE_CONFIG.contact.officialPhone.display}`}
+            >
+              <Phone aria-hidden="true" className="size-3.5 text-gold" />
+              <span dir="ltr">{SITE_CONFIG.contact.officialPhone.display}</span>
+            </a>
+            <a
+              href={SITE_CONFIG.contact.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 transition-colors hover:text-gold-soft"
+              aria-label={`WhatsApp ${SITE_CONFIG.contact.whatsapp.display}`}
+            >
+              <MessageCircle aria-hidden="true" className="size-3.5 text-gold" />
+              <span dir="ltr">{SITE_CONFIG.contact.whatsapp.display}</span>
+            </a>
+            <a
+              href={SITE_CONFIG.contact.inquiryEmail.href}
+              className="inline-flex items-center gap-2 transition-colors hover:text-gold-soft"
+              aria-label={`Email ${SITE_CONFIG.contact.inquiryEmail.address}`}
+            >
+              <Mail aria-hidden="true" className="size-3.5 text-gold" />
+              <span>{SITE_CONFIG.contact.inquiryEmail.address}</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="border-t border-white/10 pb-24 md:pb-0">

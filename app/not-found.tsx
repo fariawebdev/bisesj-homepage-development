@@ -10,7 +10,7 @@ export default function RootNotFound() {
   return (
     <html lang="en">
       <body className="min-h-screen bg-[#FAF8F3] text-[#121614] flex flex-col items-center justify-center p-6">
-        <div className="mx-auto max-w-md text-center">
+        <main id="main" className="mx-auto max-w-md text-center">
           <div className="mx-auto flex size-20 items-center justify-center rounded-full bg-[#0B3D2E]/10 text-[#0B3D2E]">
             <Compass aria-hidden="true" className="size-10 text-[#C9A24B]" />
           </div>
@@ -47,7 +47,7 @@ export default function RootNotFound() {
               <span>Contact</span>
             </Link>
           </div>
-        </div>
+        </main>
       </body>
     </html>
   )
