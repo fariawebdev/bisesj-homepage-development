@@ -35,7 +35,7 @@ export default function MeritScholarshipPage() {
             </div>
             <h3 className="mt-4 font-bold text-foreground">Eligibility</h3>
             <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-              Open to full-time registered BISESJ students enrolled in Grade 9 and Grade 10 IGCSE courses with consistent performance.
+              Open to full-time registered BISESJ students enrolled in Year 9 and Year 10 IGCSE courses with consistent performance.
             </p>
           </div>
 
