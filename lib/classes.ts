@@ -12,6 +12,7 @@ export type StageName =
   | 'Primary'
   | 'Lower Secondary'
   | 'Cambridge IGCSE'
+  | 'AS & A Level'
   | 'Cambridge International AS & A Level'
 
 export interface SchoolClass {
@@ -41,8 +42,8 @@ export const CLASSES: readonly SchoolClass[] = [
   { slug: 'year-8', label: 'Year 8', stage: 'Lower Secondary', order: 10 },
   { slug: 'year-9', label: 'Year 9', stage: 'Cambridge IGCSE', order: 11 },
   { slug: 'year-10', label: 'Year 10', stage: 'Cambridge IGCSE', order: 12 },
-  { slug: 'year-11', label: 'Year 11 (AS Level)', stage: 'Cambridge International AS & A Level', order: 13 },
-  { slug: 'year-12', label: 'Year 12 (A Level)', stage: 'Cambridge International AS & A Level', order: 14 },
+  { slug: 'year-11', label: 'Year 11 (AS Level)', stage: 'AS & A Level', order: 13 },
+  { slug: 'year-12', label: 'Year 12 (A Level)', stage: 'AS & A Level', order: 14 },
 ] as const
 
 export const PATHWAY_STAGES: readonly PathwayStage[] = [
@@ -71,8 +72,8 @@ export const PATHWAY_STAGES: readonly PathwayStage[] = [
     classSlugs: ['year-9', 'year-10'],
   },
   {
-    name: 'Cambridge International AS & A Level',
-    classesLabel: 'Year 11, Year 12',
+    name: 'AS & A Level',
+    classesLabel: 'Year 11 to 12',
     body: 'Specialised, university-ready study accepted worldwide.',
     classSlugs: ['year-11', 'year-12'],
   },

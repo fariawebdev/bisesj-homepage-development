@@ -6,24 +6,24 @@ import { isNavItemActive } from '@/components/site/header'
 
 describe('S2-06 Header and Footer Unit Tests', () => {
   describe('Footer Configuration', () => {
-    it('defines 3 navigational columns matching the 4-column layout requirements', () => {
+    it('defines exactly 3 navigational columns matching the brief requirements', () => {
       expect(FOOTER.columns).toHaveLength(3)
-      expect(FOOTER.columns[0].title).toBe('Academics')
-      expect(FOOTER.columns[1].title).toBe('School Life')
-      expect(FOOTER.columns[2].title).toBe('Contact & Inquiries')
+      expect(FOOTER.columns[0].title).toBe('School')
+      expect(FOOTER.columns[1].title).toBe('Updates')
+      expect(FOOTER.columns[2].title).toBe('Get in touch')
     })
 
-    it('contains the required links under Academics', () => {
-      const academicsLinks = FOOTER.columns[0].links.map((l) => l.link)
-      expect(academicsLinks).toEqual(['syllabus', 'routine', 'academicCalendar'])
+    it('contains the required links under School', () => {
+      const schoolLinks = FOOTER.columns[0].links.map((l) => l.link)
+      expect(schoolLinks).toEqual(['aboutUs', 'admission', 'syllabus', 'academicCalendar', 'routine'])
     })
 
-    it('contains the required links under School Life', () => {
-      const schoolLifeLinks = FOOTER.columns[1].links.map((l) => l.link)
-      expect(schoolLifeLinks).toEqual(['news', 'meritScholarship', 'twentyYearsCambridge'])
+    it('contains the required links under Updates', () => {
+      const updatesLinks = FOOTER.columns[1].links.map((l) => l.link)
+      expect(updatesLinks).toEqual(['news', 'jobVacancy'])
     })
 
-    it('contains the required links under Contact & Inquiries', () => {
+    it('contains the required links under Get in touch', () => {
       const contactLinks = FOOTER.columns[2].links.map((l) => l.link)
       expect(contactLinks).toEqual(['contact', 'parentFeedback'])
     })

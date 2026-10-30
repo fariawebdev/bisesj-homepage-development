@@ -97,7 +97,6 @@ export function NewsSection() {
                     <li key={item.title}>
                       <SmartLink
                         to={item.link}
-                        label={item.title}
                         className="group flex h-full flex-col justify-between gap-8 rounded-[24px] border border-border bg-card p-6 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-gold"
                       >
                         <div className="flex flex-wrap items-center gap-2">

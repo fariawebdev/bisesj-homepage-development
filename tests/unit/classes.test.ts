@@ -63,8 +63,8 @@ describe('Classes and Pathway Foundation (S2-02)', () => {
     const igcse = getClassesByStage('Cambridge IGCSE')
     expect(igcse.map((c) => c.slug)).toEqual(['year-9', 'year-10'])
 
-    // Cambridge International AS & A Level: Year 11 to 12
-    const advanced = getClassesByStage('Cambridge International AS & A Level')
+    // AS & A Level: Year 11 to 12
+    const advanced = getClassesByStage('AS & A Level')
     expect(advanced.map((c) => c.slug)).toEqual(['year-11', 'year-12'])
   })
 
@@ -82,8 +82,8 @@ describe('Classes and Pathway Foundation (S2-02)', () => {
     expect(PATHWAY_STAGES[3].name).toBe('Cambridge IGCSE')
     expect(PATHWAY_STAGES[3].classesLabel).toBe('Year 9 to 10')
 
-    expect(PATHWAY_STAGES[4].name).toBe('Cambridge International AS & A Level')
-    expect(PATHWAY_STAGES[4].classesLabel).toBe('Year 11, Year 12')
+    expect(PATHWAY_STAGES[4].name).toBe('AS & A Level')
+    expect(PATHWAY_STAGES[4].classesLabel).toBe('Year 11 to 12')
   })
 
   it('ensures "Grade" and "KG" do not appear anywhere in classes, pathway, or enquiry definitions', () => {

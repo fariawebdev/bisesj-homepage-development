@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('S2-07 Mobile Images and PDF Downloads E2E', () => {
-  test('Admission page renders DocumentCards for all 3 official PDF documents', async ({ page }) => {
+  test('Admission page renders DocumentCards for all 3 official PDF documents with separate Open and Download buttons', async ({ page }) => {
     await page.goto('/en/admission')
 
     // 1. Admission Test PDF Card
@@ -10,31 +10,49 @@ test.describe('S2-07 Mobile Images and PDF Downloads E2E', () => {
     await expect(admissionTestCard.getByText('PDF', { exact: true })).toBeVisible()
     await expect(admissionTestCard.getByText('1.63 MB')).toBeVisible()
 
-    const admissionTestLink = admissionTestCard.locator('a[href="/documents/admission-test-for-newcomers-2026-27.pdf"]')
-    await expect(admissionTestLink).toBeVisible()
-    await expect(admissionTestLink).toHaveAttribute('target', '_blank')
-    await expect(admissionTestLink).toHaveAttribute('rel', /noopener noreferrer/)
+    const admissionTestOpen = admissionTestCard.getByRole('link', { name: /Open/i })
+    await expect(admissionTestOpen).toBeVisible()
+    await expect(admissionTestOpen).toHaveAttribute('href', '/documents/admission-test-for-newcomers-2026-27.pdf')
+    await expect(admissionTestOpen).toHaveAttribute('target', '_blank')
+    await expect(admissionTestOpen).toHaveAttribute('rel', /noopener noreferrer/)
+
+    const admissionTestDownload = admissionTestCard.getByRole('link', { name: /Download/i })
+    await expect(admissionTestDownload).toBeVisible()
+    await expect(admissionTestDownload).toHaveAttribute('href', '/documents/admission-test-for-newcomers-2026-27.pdf')
+    await expect(admissionTestDownload).toHaveAttribute('download', '')
 
     // 2. Bangladeshi Fee Structure Card
     const bangladeshiFeeCard = page.locator('.group', { hasText: 'Tuition Fee Structure (Bangladeshi Students) 2026–2027' })
     await expect(bangladeshiFeeCard).toBeVisible()
     await expect(bangladeshiFeeCard.getByText('55 KB')).toBeVisible()
 
-    const bangladeshiFeeLink = bangladeshiFeeCard.locator('a[href="/documents/tuition-fee-structure-bangladeshi-2026-2027.pdf"]')
-    await expect(bangladeshiFeeLink).toBeVisible()
-    await expect(bangladeshiFeeLink).toHaveAttribute('target', '_blank')
+    const bangladeshiOpen = bangladeshiFeeCard.getByRole('link', { name: /Open/i })
+    await expect(bangladeshiOpen).toBeVisible()
+    await expect(bangladeshiOpen).toHaveAttribute('href', '/documents/tuition-fee-structure-bangladeshi-2026-2027.pdf')
+    await expect(bangladeshiOpen).toHaveAttribute('target', '_blank')
+
+    const bangladeshiDownload = bangladeshiFeeCard.getByRole('link', { name: /Download/i })
+    await expect(bangladeshiDownload).toBeVisible()
+    await expect(bangladeshiDownload).toHaveAttribute('href', '/documents/tuition-fee-structure-bangladeshi-2026-2027.pdf')
+    await expect(bangladeshiDownload).toHaveAttribute('download', '')
 
     // 3. Foreigner Fee Structure Card
     const foreignerFeeCard = page.locator('.group', { hasText: 'Tuition Fee Structure (Foreigner Students) 2026–2027' })
     await expect(foreignerFeeCard).toBeVisible()
     await expect(foreignerFeeCard.getByText('53 KB')).toBeVisible()
 
-    const foreignerFeeLink = foreignerFeeCard.locator('a[href="/documents/tuition-fee-structure-foreigner-2026-2027.pdf"]')
-    await expect(foreignerFeeLink).toBeVisible()
-    await expect(foreignerFeeLink).toHaveAttribute('target', '_blank')
+    const foreignerOpen = foreignerFeeCard.getByRole('link', { name: /Open/i })
+    await expect(foreignerOpen).toBeVisible()
+    await expect(foreignerOpen).toHaveAttribute('href', '/documents/tuition-fee-structure-foreigner-2026-2027.pdf')
+    await expect(foreignerOpen).toHaveAttribute('target', '_blank')
+
+    const foreignerDownload = foreignerFeeCard.getByRole('link', { name: /Download/i })
+    await expect(foreignerDownload).toBeVisible()
+    await expect(foreignerDownload).toHaveAttribute('href', '/documents/tuition-fee-structure-foreigner-2026-2027.pdf')
+    await expect(foreignerDownload).toHaveAttribute('download', '')
   })
 
-  test('Academic Calendar page renders DocumentCard with correct file size and open in new tab', async ({ page }) => {
+  test('Academic Calendar page renders DocumentCard with correct file size and separate Open and Download buttons', async ({ page }) => {
     await page.goto('/en/academic-calendar')
 
     const calendarCard = page.locator('.group', { hasText: 'BISESJ Academic Calendar 2026–2027' })
@@ -42,10 +60,16 @@ test.describe('S2-07 Mobile Images and PDF Downloads E2E', () => {
     await expect(calendarCard.getByText('PDF', { exact: true })).toBeVisible()
     await expect(calendarCard.getByText('582 KB')).toBeVisible()
 
-    const calendarLink = calendarCard.locator('a[href="/documents/academic-calendar-2026-2027.pdf"]')
-    await expect(calendarLink).toBeVisible()
-    await expect(calendarLink).toHaveAttribute('target', '_blank')
-    await expect(calendarLink).toHaveAttribute('rel', /noopener noreferrer/)
+    const calendarOpen = calendarCard.getByRole('link', { name: /Open/i })
+    await expect(calendarOpen).toBeVisible()
+    await expect(calendarOpen).toHaveAttribute('href', '/documents/academic-calendar-2026-2027.pdf')
+    await expect(calendarOpen).toHaveAttribute('target', '_blank')
+    await expect(calendarOpen).toHaveAttribute('rel', /noopener noreferrer/)
+
+    const calendarDownload = calendarCard.getByRole('link', { name: /Download/i })
+    await expect(calendarDownload).toBeVisible()
+    await expect(calendarDownload).toHaveAttribute('href', '/documents/academic-calendar-2026-2027.pdf')
+    await expect(calendarDownload).toHaveAttribute('download', '')
   })
 
   test('All four official PDF document URLs are accessible with status 200', async ({ page }) => {

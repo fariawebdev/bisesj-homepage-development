@@ -310,25 +310,26 @@ export const FOOTER = {
   tagline: SITE_CONFIG.curriculum,
   columns: [
     {
-      title: 'Academics',
+      title: 'School',
       links: [
+        { label: 'About Us', link: 'aboutUs' },
+        { label: 'Admission', link: 'admission' },
         { label: 'Syllabus', link: 'syllabus' },
-        { label: 'Routine', link: 'routine' },
         { label: 'Academic Calendar', link: 'academicCalendar' },
+        { label: 'Routine', link: 'routine' },
       ],
     },
     {
-      title: 'School Life',
+      title: 'Updates',
       links: [
         { label: 'News', link: 'news' },
-        { label: 'Merit Scholarship', link: 'meritScholarship' },
-        { label: '20 Years with Cambridge', link: 'twentyYearsCambridge' },
+        { label: 'Job Vacancy', link: 'jobVacancy' },
       ],
     },
     {
-      title: 'Contact & Inquiries',
+      title: 'Get in touch',
       links: [
-        { label: 'Contact Us', link: 'contact' },
+        { label: 'Contact', link: 'contact' },
         { label: 'Parent Feedback', link: 'parentFeedback' },
       ],
     },

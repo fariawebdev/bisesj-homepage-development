@@ -84,18 +84,28 @@ export function DocumentCard({
         </div>
       </div>
 
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={handleDownloadClick}
-        aria-label={`Download ${title} (${format}, ${fileSize}) (opens in a new tab)`}
-        className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-xs transition-colors hover:bg-forest-deep focus-visible:outline-2 focus-visible:outline-gold sm:self-center"
-      >
-        <Download aria-hidden="true" className="size-3.5 text-gold" />
-        <span>Download</span>
-        <ExternalLink aria-hidden="true" className="size-3 opacity-60" />
-      </a>
+      <div className="flex shrink-0 items-center gap-2 sm:self-center">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${title} (opens in a new tab)`}
+          className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-3.5 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-gold"
+        >
+          <ExternalLink aria-hidden="true" className="size-3.5" />
+          <span>Open</span>
+        </a>
+        <a
+          href={href}
+          download
+          onClick={handleDownloadClick}
+          aria-label={`Download ${title} (${format}, ${fileSize})`}
+          className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-3.5 py-1.5 text-xs font-semibold text-primary-foreground shadow-xs transition-colors hover:bg-forest-deep focus-visible:outline-2 focus-visible:outline-gold"
+        >
+          <Download aria-hidden="true" className="size-3.5 text-gold" />
+          <span>Download</span>
+        </a>
+      </div>
     </div>
   )
 }

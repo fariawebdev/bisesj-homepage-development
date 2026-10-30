@@ -86,34 +86,35 @@ test.describe('S2-06 Header and Footer E2E', () => {
     await expect(menuButton).toBeFocused()
   })
 
-  test('Footer displays 4 columns with required headings and official contact details', async ({ page }) => {
+  test('Footer displays 3 columns with required headings and official contact details', async ({ page }) => {
     await page.goto('/en')
     const footer = page.locator('footer')
     await expect(footer).toBeVisible()
 
-    // Column 1: Identity
+    // Identity row
     await expect(footer.getByText('BISESJ', { exact: true })).toBeVisible()
     await expect(footer.getByText('Est. 1993')).toBeVisible()
     await expect(footer.getByText('Cambridge International School · Jeddah').first()).toBeVisible()
 
-    // Column 2: Academics
-    await expect(footer.getByRole('heading', { name: 'Academics' })).toBeVisible()
+    // Column 1: School
+    await expect(footer.getByRole('heading', { name: 'School' })).toBeVisible()
+    await expect(footer.locator('a[href="/en/about-us"]')).toBeVisible()
+    await expect(footer.locator('a[href="/en/admission"]')).toBeVisible()
     await expect(footer.locator('a[href="/en/syllabus"]')).toBeVisible()
-    await expect(footer.locator('a[href="/en/routine"]')).toBeVisible()
     await expect(footer.locator('a[href="/en/academic-calendar"]')).toBeVisible()
+    await expect(footer.locator('a[href="/en/routine"]')).toBeVisible()
 
-    // Column 3: School Life
-    await expect(footer.getByRole('heading', { name: 'School Life' })).toBeVisible()
+    // Column 2: Updates
+    await expect(footer.getByRole('heading', { name: 'Updates' })).toBeVisible()
     await expect(footer.locator('a[href="/en/news"]')).toBeVisible()
-    await expect(footer.locator('a[href="/en/merit-scholarship"]')).toBeVisible()
-    await expect(footer.locator('a[href="/en/20-years-with-cambridge"]')).toBeVisible()
+    await expect(footer.locator('a[href="/en/job-vacancy"]')).toBeVisible()
 
-    // Column 4: Contact & Inquiries
-    await expect(footer.getByRole('heading', { name: 'Contact & Inquiries' })).toBeVisible()
+    // Column 3: Get in touch
+    await expect(footer.getByRole('heading', { name: 'Get in touch' })).toBeVisible()
     await expect(footer.locator('a[href="/en/contact"]')).toBeVisible()
     await expect(footer.locator('a[href="/en/parent-feedback"]')).toBeVisible()
 
-    // Direct contact channels in Column 4
+    // Direct contact channels in Column 3
     const phone = footer.locator('a[href="tel:+966126647079"]')
     await expect(phone).toBeVisible()
     await expect(phone).toContainText('+966 12 664 7079')

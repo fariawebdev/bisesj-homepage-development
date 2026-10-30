@@ -62,6 +62,42 @@ describe('S1-07 Routes and Menu Skeleton', () => {
     }
   })
 
+  it('verifies all internal routes and document links are valid and not broken', () => {
+    for (const [key, def] of Object.entries(LINKS)) {
+      if ('internal' in def && def.internal) {
+        if (def.href.startsWith('#')) {
+          expect(def.href).toMatch(/^#[a-zA-Z0-9_-]+$/)
+        } else if (def.href.startsWith('/documents/')) {
+          const docPath = path.resolve(process.cwd(), 'public', def.href.replace(/^\//, ''))
+          expect(fs.existsSync(docPath), `Document at ${def.href} must exist on disk`).toBe(true)
+        } else if (def.href.startsWith('/')) {
+          const cleanRoute = def.href.replace(/^\//, '')
+          const pageFile = path.resolve(process.cwd(), `app/[locale]/${cleanRoute}/page.tsx`)
+          expect(fs.existsSync(pageFile), `Page file for route ${def.href} must exist at ${pageFile}`).toBe(true)
+        }
+      }
+    }
+  })
+
+  it('asserts link-check cleanliness: zero wp-content, zero stale numbers, zero "Grade" or "KG"', () => {
+    for (const [key, def] of Object.entries(LINKS)) {
+      // 1. No bisesjsa.com/wp-content
+      expect(def.href).not.toContain('bisesjsa.com/wp-content')
+      expect(def.href).not.toContain('wp-content')
+
+      // 2. No stale phone numbers
+      expect(def.href).not.toContain('6638992')
+      expect(def.href).not.toContain('663 8992')
+      expect(def.href).not.toContain('582237432')
+
+      // 3. No "Grade" or "KG"
+      expect(key.toLowerCase()).not.toContain('grade')
+      expect(key).not.toMatch(/\bKG\b/)
+      expect(def.href.toLowerCase()).not.toContain('grade')
+      expect(def.href).not.toMatch(/\bKG\b/)
+    }
+  })
+
   it('verifies no "Book a Campus Tour" buttons exist in active components', () => {
     const heroContent = fs.readFileSync(path.resolve(process.cwd(), 'components/site/hero.tsx'), 'utf8')
     const campusContent = fs.readFileSync(path.resolve(process.cwd(), 'components/site/campus.tsx'), 'utf8')

@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest'
+import fs from 'fs'
+import path from 'path'
 import { getPageMarkdown } from '@/lib/markdown'
 import { SITE_CONFIG } from '@/lib/site-config'
 import { LINKS } from '@/lib/links'
@@ -28,6 +30,18 @@ describe('Inner Pages & Content Foundation (S2-05)', () => {
       const content = getPageMarkdown(slug)
       expect(content.toLowerCase(), `File content/pages/${slug}.md should not contain "grade"`).not.toContain('grade')
       expect(content, `File content/pages/${slug}.md should not contain "KG"`).not.toMatch(/\bKG\b/)
+    }
+  })
+
+  it('ensures no "Grade" or "KG" appears in any localization message files (messages/*.json)', () => {
+    const messagesDir = path.resolve(process.cwd(), 'messages')
+    const messageFiles = fs.readdirSync(messagesDir).filter((file) => file.endsWith('.json'))
+
+    expect(messageFiles.length).toBeGreaterThan(0)
+    for (const file of messageFiles) {
+      const content = fs.readFileSync(path.join(messagesDir, file), 'utf8')
+      expect(content.toLowerCase(), `File messages/${file} should not contain "grade"`).not.toContain('grade')
+      expect(content, `File messages/${file} should not contain "KG"`).not.toMatch(/\bKG\b/)
     }
   })
 
