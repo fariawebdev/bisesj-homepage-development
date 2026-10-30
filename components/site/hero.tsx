@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight, Award, CalendarCheck, Download } from 'lucide-react'
-import { ASSETS } from '@/src/assets'
+import { ASSETS } from '@/lib/assets'
 import { useLocale } from './i18n'
 import { SmartLink } from './smart-link'
 import { Magnetic } from './motion'
@@ -33,7 +33,7 @@ export function Hero() {
     <section
       ref={ref}
       aria-labelledby="hero-title"
-      className="relative isolate -mt-[78px] flex min-h-[100svh] items-end overflow-hidden bg-forest-deep pt-36 text-primary-foreground"
+      className="relative isolate -mt-[78px] flex min-h-[100svh] items-end overflow-hidden bg-forest-deep pt-24 text-primary-foreground sm:pt-28 md:pt-36"
     >
       <motion.div aria-hidden="true" className="absolute inset-0 -z-20" style={{ y, scale }}>
         <SafeImage src={ASSETS.hero} alt="" priority wrapperClassName="h-full w-full" />
@@ -47,19 +47,24 @@ export function Hero() {
         className="absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_15%_85%,rgb(201_162_75/0.22),transparent_70%)]"
       />
 
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 pb-16 md:px-6 md:pb-24 lg:grid-cols-12 lg:items-end">
+      <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 pb-32 sm:gap-10 sm:pb-32 md:gap-12 md:px-6 md:pb-24 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
-          <motion.p
+          <motion.div
             {...fadeUp(0.1)}
-            className="inline-flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-soft"
+            className="flex flex-col gap-1.5"
           >
-            <span aria-hidden="true" className="h-px w-8 bg-gold" />
-            {h.eyebrow}
-          </motion.p>
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-soft">
+              {h.eyebrowLine1}
+            </span>
+            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-soft">
+              <span aria-hidden="true" className="h-px w-8 bg-gold" />
+              {h.eyebrowLine2}
+            </span>
+          </motion.div>
 
           <h1
             id="hero-title"
-            className="mt-6 font-serif text-5xl leading-[0.98] tracking-tight text-balance sm:text-6xl md:text-7xl xl:text-8xl"
+            className="mt-4 font-serif text-4xl leading-[1.02] tracking-tight text-balance sm:mt-6 sm:text-6xl md:text-7xl xl:text-8xl"
           >
             <motion.span {...fadeUp(0.2)} className="block">
               {h.title[0]}
@@ -69,16 +74,16 @@ export function Hero() {
             </motion.span>
           </h1>
 
-          <motion.p {...fadeUp(0.45)} className="mt-7 max-w-xl text-lg leading-relaxed text-primary-foreground/80 md:text-xl">
+          <motion.p {...fadeUp(0.45)} className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:mt-7 sm:text-lg md:text-xl">
             {h.sub}
           </motion.p>
 
-          <motion.div {...fadeUp(0.55)} className="mt-10 flex flex-wrap items-center gap-4">
+          <motion.div {...fadeUp(0.55)} className="mt-6 flex flex-wrap items-center gap-4 sm:mt-8 md:mt-10">
             <Magnetic>
               <SmartLink
                 to="registration"
                 label={h.ctaApply}
-                className="group inline-flex items-center gap-3 rounded-full bg-gold px-7 py-4 text-base font-semibold text-primary shadow-lift transition-colors hover:bg-gold-soft focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-soft"
+                className="group inline-flex items-center gap-3 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-primary shadow-lift transition-colors hover:bg-gold-soft focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-soft sm:px-7 sm:py-4 sm:text-base"
               >
                 {h.ctaApply}
                 <ArrowUpRight

@@ -1,9 +1,10 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
-import { ASSETS } from '@/src/assets'
-import { CONTACT, LINKS } from '@/src/links'
-import { SCHOOL } from '@/src/content'
+import { ASSETS } from '@/lib/assets'
+import { CONTACT, LINKS } from '@/lib/links'
+import { SCHOOL } from '@/lib/content'
+import { getRobotsMetadata } from '@/lib/seo'
 import {
   SUPPORTED_LOCALES,
   isLocale,
@@ -52,6 +53,7 @@ export const metadata: Metadata = {
     images: [ASSETS.hero],
   },
   icons: { icon: ASSETS.logo, apple: ASSETS.logo },
+  robots: getRobotsMetadata(),
 }
 
 export const viewport: Viewport = {
@@ -105,6 +107,12 @@ export default async function LocaleLayout({
       className={`${fontVariables} bg-background`}
     >
       <body className="antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[100] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-primary focus:font-semibold focus:shadow-lift"
+        >
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

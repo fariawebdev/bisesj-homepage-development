@@ -3,17 +3,18 @@
 import { useId, useRef, useState } from 'react'
 import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { CONTACT } from '@/src/links'
-import { ENQUIRY, SCHOOL } from '@/src/content'
+import { CONTACT } from '@/lib/links'
+import { ENQUIRY, SCHOOL } from '@/lib/content'
+import { CLASSES } from '@/lib/classes'
 import { SITE_CONFIG } from '@/lib/site-config'
 import { Reveal } from './motion'
 import { SectionHeading } from './section-heading'
 import { SmartLink } from './smart-link'
 
-type Values = { name: string; phone: string; grade: string; message: string }
+type Values = { name: string; phone: string; classLevel: string; message: string }
 type Errors = Partial<Record<keyof Values, string>>
 
-const EMPTY: Values = { name: '', phone: '', grade: '', message: '' }
+const EMPTY: Values = { name: '', phone: '', classLevel: '', message: '' }
 const PHONE_PATTERN = /^\+?[\d\s()-]+$/
 
 function validate(v: Values): Errors {
@@ -26,7 +27,7 @@ function validate(v: Values): Errors {
   else if (!PHONE_PATTERN.test(v.phone.trim()) || digits.length < 8 || digits.length > 15)
     errors.phone = 'Enter a valid phone number, e.g. +966 5X XXX XXXX.'
 
-  if (!v.grade) errors.grade = "Please select your child's grade."
+  if (!v.classLevel) errors.classLevel = "Please select your child's class."
   if (!v.message.trim()) errors.message = 'Please enter a short message.'
   return errors
 }
@@ -96,13 +97,13 @@ export function EnquirySection() {
                   )}
                 </Field>
               </div>
-              <Field label={ENQUIRY.fields.grade} error={errors.grade}>
+              <Field label={ENQUIRY.fields.classLevel} error={errors.classLevel}>
                 {(props) => (
-                  <select {...props} name="grade" value={values.grade} onChange={update('grade')}>
-                    <option value="">Select a grade</option>
-                    {ENQUIRY.grades.map((g) => (
-                      <option key={g} value={g}>
-                        {g}
+                  <select {...props} name="classLevel" value={values.classLevel} onChange={update('classLevel')}>
+                    <option value="">Select a class</option>
+                    {CLASSES.map((c) => (
+                      <option key={c.slug} value={c.label}>
+                        {c.label}
                       </option>
                     ))}
                   </select>

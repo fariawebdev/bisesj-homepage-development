@@ -13,6 +13,14 @@ export const SITE_CONFIG = {
   foundedYear: 1993,
   yearsWithCambridge: '20+',
 
+  inquiryEmail: 'inquiry@bisesjsa.com',
+  admissionsEmail: 'admissions-info@bisesjsa.com',
+  feedbackEmail: 'feedback@bisesjsa.com',
+
+  features: {
+    routine: 'locked' as const,
+  },
+
   contact: {
     officialPhone: {
       display: '+966 12 664 7079',
@@ -24,12 +32,20 @@ export const SITE_CONFIG = {
       rawNumber: '966567276919',
     },
     generalEmail: {
-      address: 'principal@bisesjsa.com',
-      href: 'mailto:principal@bisesjsa.com',
+      address: 'inquiry@bisesjsa.com',
+      href: 'mailto:inquiry@bisesjsa.com',
+    },
+    inquiryEmail: {
+      address: 'inquiry@bisesjsa.com',
+      href: 'mailto:inquiry@bisesjsa.com',
     },
     admissionsEmail: {
       address: 'admissions-info@bisesjsa.com',
       href: 'mailto:admissions-info@bisesjsa.com',
+    },
+    feedbackEmail: {
+      address: 'feedback@bisesjsa.com',
+      href: 'mailto:feedback@bisesjsa.com',
     },
     address: 'Othman Ibn Affan, Al Sharafeyah, Jeddah 23218, Kingdom of Saudi Arabia',
     mapUrl: 'https://maps.app.goo.gl/b1y9wDWiEVpdr21BA',

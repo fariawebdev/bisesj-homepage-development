@@ -13,7 +13,7 @@ test.describe('S1-12: Honest enquiry form', () => {
     // Form elements
     const nameInput = enquirySection.locator('input[name="name"]')
     const phoneInput = enquirySection.locator('input[name="phone"]')
-    const gradeSelect = enquirySection.locator('select[name="grade"]')
+    const classSelect = enquirySection.locator('select[name="classLevel"]')
     const messageInput = enquirySection.locator('textarea[name="message"]')
     const submitBtn = enquirySection.locator('button[type="submit"]')
 
@@ -23,7 +23,7 @@ test.describe('S1-12: Honest enquiry form', () => {
     // Fill valid values
     await nameInput.fill('Rahim Ahmed')
     await phoneInput.fill('+966 50 123 4567')
-    await gradeSelect.selectOption('Grade 1')
+    await classSelect.selectOption('Year 1')
     await messageInput.fill('Interested in admission for next academic year.')
 
     // Submit the form

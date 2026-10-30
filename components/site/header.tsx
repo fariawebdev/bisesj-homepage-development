@@ -1,18 +1,41 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, Mail, Menu, Phone, X, CalendarDays } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { ASSETS } from '@/src/assets'
-import { CONTACT } from '@/src/links'
-import { LOCALES, NAV_ITEMS, SCHOOL, type Locale } from '@/src/content'
+import { ASSETS } from '@/lib/assets'
+import { CONTACT, LINKS, type LinkKey } from '@/lib/links'
+import { LOCALES, NAV_ITEMS, SCHOOL, type Locale } from '@/lib/content'
 import { isLocaleEnabled } from '@/lib/i18n'
 import { useLocale } from './i18n'
 import { SmartLink } from './smart-link'
 import { Magnetic } from './motion'
 import { SafeImage } from './safe-image'
+
+/* --------------------------- Active Route Helper -------------------------- */
+
+export function isNavItemActive(
+  key: string,
+  pathname: string | null,
+  locale: string,
+): boolean {
+  if (!pathname) return false
+  const path = pathname.replace(/\/$/, '')
+  const homePath = `/${locale}`
+
+  if (key === 'home') {
+    return path === homePath || path === ''
+  }
+
+  const linkDef = LINKS[key as LinkKey]
+  if (linkDef && 'internal' in linkDef && linkDef.internal) {
+    const targetPath = `/${locale}${linkDef.href}`
+    return path === targetPath || path.startsWith(`${targetPath}/`)
+  }
+  return false
+}
 
 /* ------------------------------ Announcement ------------------------------ */
 
@@ -133,7 +156,7 @@ function LanguageSwitcher({ className }: { className?: string }) {
           lang={l.code}
           onClick={() => handleSelectLocale(l.code)}
           aria-pressed={locale === l.code}
-          aria-label={l.name}
+          title={l.name}
           className={cn(
             'rounded-full px-2.5 py-1 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-gold',
             locale === l.code ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-primary',
@@ -149,9 +172,13 @@ function LanguageSwitcher({ className }: { className?: string }) {
 /* --------------------------------- Navbar --------------------------------- */
 
 function Navbar() {
-  const { t } = useLocale()
+  const { locale, t } = useLocale()
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  const menuRef = useRef<HTMLDivElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -162,12 +189,66 @@ function Navbar() {
 
   useEffect(() => {
     if (!open) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
-    document.addEventListener('keydown', onKey)
+
+    const menuEl = menuRef.current
+    const triggerEl = menuButtonRef.current
+    if (!menuEl) return
+
+    const focusableSelector =
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+    const getFocusables = () =>
+      Array.from(menuEl.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+        (el) => !el.hasAttribute('disabled') && el.offsetParent !== null,
+      )
+
+    const timer = requestAnimationFrame(() => {
+      const focusables = getFocusables()
+      if (focusables.length > 0) {
+        focusables[0].focus()
+      }
+    })
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        setOpen(false)
+        menuButtonRef.current?.focus()
+        return
+      }
+
+      if (e.key === 'Tab') {
+        const focusables = getFocusables()
+        if (focusables.length === 0) {
+          e.preventDefault()
+          return
+        }
+
+        const first = focusables[0]
+        const last = focusables[focusables.length - 1]
+
+        if (e.shiftKey) {
+          if (document.activeElement === first || !menuEl.contains(document.activeElement)) {
+            e.preventDefault()
+            last.focus()
+          }
+        } else {
+          if (document.activeElement === last || !menuEl.contains(document.activeElement)) {
+            e.preventDefault()
+            first.focus()
+          }
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
     document.body.style.overflow = 'hidden'
+
     return () => {
-      document.removeEventListener('keydown', onKey)
+      cancelAnimationFrame(timer)
+      document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
+      triggerEl?.focus()
     }
   }, [open])
 
@@ -180,7 +261,7 @@ function Navbar() {
           scrolled ? 'shadow-lift' : 'shadow-soft',
         )}
       >
-        <SmartLink to="home" label={`${SCHOOL.name}, home`} className="flex items-center gap-3 rounded-xl">
+        <SmartLink to="home" className="flex items-center gap-3 rounded-xl">
           <SafeImage
             src={ASSETS.logo}
             alt=""
@@ -197,17 +278,26 @@ function Navbar() {
         </SmartLink>
 
         <ul className="hidden items-center gap-1 xl:flex">
-          {NAV_ITEMS.map((key) => (
-            <li key={key}>
-              <SmartLink
-                to={key}
-                label={t.nav[key]}
-                className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/5 hover:text-primary focus-visible:outline-2 focus-visible:outline-gold"
-              >
-                {t.nav[key]}
-              </SmartLink>
-            </li>
-          ))}
+          {NAV_ITEMS.map((key) => {
+            const isActive = isNavItemActive(key, pathname, locale)
+            return (
+              <li key={key}>
+                <SmartLink
+                  to={key}
+                  label={t.nav[key]}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={cn(
+                    'relative rounded-full px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-gold',
+                    isActive
+                      ? 'border-b-2 border-gold font-semibold text-primary bg-primary/5'
+                      : 'text-foreground/80 hover:bg-primary/5 hover:text-primary',
+                  )}
+                >
+                  {t.nav[key]}
+                </SmartLink>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="flex items-center gap-2">
@@ -223,6 +313,7 @@ function Navbar() {
             </SmartLink>
           </Magnetic>
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setOpen(true)}
             aria-label={t.menu}
@@ -238,11 +329,13 @@ function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={menuRef}
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
             aria-label="Site menu"
-            className="fixed inset-0 z-[70] flex flex-col bg-primary text-primary-foreground"
+            tabIndex={-1}
+            className="fixed inset-0 z-[70] flex flex-col bg-primary text-primary-foreground focus:outline-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -262,23 +355,32 @@ function Navbar() {
             </div>
             <div className="gold-rule mx-5 opacity-60" />
             <ul className="flex flex-1 flex-col gap-1 overflow-y-auto px-5 py-6">
-              {NAV_ITEMS.map((key, i) => (
-                <motion.li
-                  key={key}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.04 * i }}
-                >
-                  <SmartLink
-                    to={key}
-                    label={t.nav[key]}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 font-serif text-3xl tracking-tight transition-colors hover:text-gold"
+              {NAV_ITEMS.map((key, i) => {
+                const isActive = isNavItemActive(key, pathname, locale)
+                return (
+                  <motion.li
+                    key={key}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.04 * i }}
                   >
-                    {t.nav[key]}
-                  </SmartLink>
-                </motion.li>
-              ))}
+                    <SmartLink
+                      to={key}
+                      label={t.nav[key]}
+                      onClick={() => setOpen(false)}
+                      aria-current={isActive ? 'page' : undefined}
+                      className={cn(
+                        'block py-3 font-serif text-3xl tracking-tight transition-colors',
+                        isActive
+                          ? 'font-bold text-gold underline underline-offset-8 decoration-gold'
+                          : 'text-primary-foreground hover:text-gold',
+                      )}
+                    >
+                      {t.nav[key]}
+                    </SmartLink>
+                  </motion.li>
+                )
+              })}
             </ul>
             <div className="flex flex-col gap-4 px-5 pb-8">
               <LanguageSwitcher className="self-start border-white/20 bg-white/10 [&_button[aria-pressed=false]]:text-primary-foreground/70 [&_button[aria-pressed=true]]:bg-gold [&_button[aria-pressed=true]]:text-primary" />
@@ -299,10 +401,10 @@ function Navbar() {
 
 export function SiteHeader() {
   return (
-    <>
+    <header>
       <AnnouncementBar />
       <UtilityBar />
       <Navbar />
-    </>
+    </header>
   )
 }

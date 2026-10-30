@@ -9,6 +9,7 @@
 import type { LinkKey } from './links'
 import { ASSETS } from './assets'
 import { SITE_CONFIG } from '@/lib/site-config'
+import { PATHWAY_STAGES } from '@/lib/classes'
 import {
   type Locale,
   LOCALE_CONFIG,
@@ -136,13 +137,11 @@ export const PATHWAY = {
   heading: 'One clear journey, from first steps to university.',
   sub: 'Select a stage to see how it builds towards Cambridge qualifications.',
   cta: 'View Syllabus',
-  stages: [
-    { name: 'Early Years', grades: 'KG', body: 'Play-based foundations in language, numeracy and curiosity.' },
-    { name: 'Primary', grades: 'Grades 1 to 5', body: 'Core literacy, mathematics and science with a strong values base.' },
-    { name: 'Lower Secondary', grades: 'Grades 6 to 8', body: 'Broadening subject knowledge and independent study habits.' },
-    { name: 'Cambridge IGCSE', grades: 'Grades 9 to 10', body: 'Internationally recognised qualifications across a wide subject choice.' },
-    { name: 'AS & A Level', grades: 'Grades 11 to 12', body: 'Specialised, university-ready study accepted worldwide.' },
-  ],
+  stages: PATHWAY_STAGES.map((s) => ({
+    name: s.name,
+    classes: s.classesLabel,
+    body: s.body,
+  })),
 }
 
 /* -------------------------------------------------------------------------- */
@@ -155,7 +154,7 @@ export const ADMISSIONS = {
   sub: 'Four clear steps from first conversation to first day.',
   steps: [
     { title: 'Enquire', body: 'Reach out by phone, WhatsApp or the enquiry form.' },
-    { title: 'Admission Test', body: 'Newcomers sit a short test appropriate to their grade.' },
+    { title: 'Admission Test', body: 'Newcomers sit a short test appropriate to their class level.' },
     { title: 'Offer', body: 'Successful applicants receive an offer of a place.' },
     { title: 'Enrol', body: 'Complete registration and welcome to the BISESJ family.' },
   ],
@@ -266,7 +265,7 @@ export const VOICES = {
       quote:
         'Our children have grown in confidence and character, while staying close to the language and values we brought from home.',
       name: 'Parent name',
-      role: 'Parent, Grade 7',
+      role: 'Parent, Year 7',
     },
     {
       quote:
@@ -293,25 +292,10 @@ export const ENQUIRY = {
   sub: 'Send us a short message and our admissions team will be in touch.',
   success:
     'Thank you! Your enquiry has been received. Our admissions team will contact you shortly.',
-  grades: [
-    'KG',
-    'Grade 1',
-    'Grade 2',
-    'Grade 3',
-    'Grade 4',
-    'Grade 5',
-    'Grade 6',
-    'Grade 7',
-    'Grade 8',
-    'Grade 9 (IGCSE)',
-    'Grade 10 (IGCSE)',
-    'AS Level',
-    'A Level',
-  ],
   fields: {
     name: 'Parent name',
     phone: 'Phone / WhatsApp',
-    grade: "Child's grade",
+    classLevel: "Child's class",
     message: 'Message',
   },
   submit: 'Send enquiry',
@@ -328,9 +312,11 @@ export const FOOTER = {
     {
       title: 'School',
       links: [
-        { label: 'About Us', link: 'about' },
+        { label: 'About Us', link: 'aboutUs' },
+        { label: 'Admission', link: 'admission' },
         { label: 'Syllabus', link: 'syllabus' },
         { label: 'Academic Calendar', link: 'academicCalendar' },
+        { label: 'Routine', link: 'routine' },
       ],
     },
     {
@@ -344,11 +330,11 @@ export const FOOTER = {
       title: 'Get in touch',
       links: [
         { label: 'Contact', link: 'contact' },
-        { label: 'Registration', link: 'registration' },
+        { label: 'Parent Feedback', link: 'parentFeedback' },
       ],
     },
   ] as { title: string; links: { label: string; link: LinkKey }[] }[],
-  instagramLabel: 'Follow us on Instagram',
+  instagramLabel: 'Follow @bisesjsa on Instagram',
   copyright: SITE_CONFIG.footer.copyright,
   credit: SITE_CONFIG.footer.credit,
 }

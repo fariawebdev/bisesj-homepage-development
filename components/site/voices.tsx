@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { VOICES } from '@/src/content'
+import { VOICES } from '@/lib/content'
 import { SectionHeading } from './section-heading'
 
 export function VoicesSection() {

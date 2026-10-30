@@ -3,7 +3,7 @@ import { BookOpen, GraduationCap, Layers } from 'lucide-react'
 
 export const metadata = {
   title: 'Syllabus & Curriculum | BISESJ',
-  description: 'Cambridge International Curriculum syllabus from Kindergarten to IGCSE and AS/A Levels at BISESJ.',
+  description: 'Cambridge International Curriculum syllabus from Early Years to IGCSE and AS/A Levels at BISESJ.',
 }
 
 const STAGES = [
@@ -14,22 +14,22 @@ const STAGES = [
   },
   {
     title: 'Cambridge Primary',
-    levels: 'Grade 1 – Grade 5',
+    levels: 'Year 1 – Year 5',
     desc: 'Core English, Mathematics, Science, Social Studies, and Arabic, aligned with Cambridge Primary progression tests.',
   },
   {
     title: 'Cambridge Lower Secondary',
-    levels: 'Grade 6 – Grade 8',
+    levels: 'Year 6 – Year 8',
     desc: 'Bridging intermediate academics with analytical thinking, laboratory sciences, and Cambridge Checkpoint preparations.',
   },
   {
     title: 'Cambridge Upper Secondary (IGCSE)',
-    levels: 'Grade 9 – Grade 10',
+    levels: 'Year 9 – Year 10',
     desc: 'Comprehensive Cambridge IGCSE subject selections spanning Sciences, Commerce, Humanities, and ICT.',
   },
   {
     title: 'Cambridge Advanced (AS & A Level)',
-    levels: 'Grade 11 – Grade 12',
+    levels: 'Year 11 – Year 12',
     desc: 'In-depth pre-university preparation recognized by premier universities and professional colleges globally.',
   },
 ]

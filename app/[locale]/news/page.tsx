@@ -12,7 +12,7 @@ const NOTICES = [
     title: 'Admissions Open for Academic Year 2026-27',
     date: 'February 2026',
     category: 'Admissions',
-    summary: 'Prospective students and parents are invited to apply for early enrollment from KG to A Level.',
+    summary: 'Prospective students and parents are invited to apply for early enrollment from Pre-Reception to Year 12 (A Level).',
     href: '/admission',
   },
   {

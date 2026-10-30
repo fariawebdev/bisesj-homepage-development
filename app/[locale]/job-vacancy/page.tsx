@@ -1,6 +1,6 @@
 import { InnerPage } from '@/components/site/inner-page'
 import { Briefcase, Mail, CheckCircle2 } from 'lucide-react'
-import { CONTACT } from '@/src/links'
+import { CONTACT } from '@/lib/links'
 
 export const metadata = {
   title: 'Job Vacancies & Careers | BISESJ',

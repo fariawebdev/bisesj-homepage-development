@@ -94,6 +94,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    scroll-padding-bottom: 5.5rem;
   }
   html[lang='ar'] body {
     font-family: var(--font-arabic);

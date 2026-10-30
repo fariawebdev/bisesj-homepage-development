@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { PATHWAY } from '@/src/content'
+import { PATHWAY } from '@/lib/content'
 import { SmartLink } from './smart-link'
 import { SectionHeading } from './section-heading'
 import { Magnetic } from './motion'
@@ -83,7 +83,7 @@ export function PathwaySection() {
                       <span className={cn('font-serif text-xl leading-tight', isActive ? 'text-primary-foreground' : 'text-primary-foreground/70')}>
                         {s.name}
                       </span>
-                      <span className="text-xs text-primary-foreground/60">{s.grades}</span>
+                      <span className="text-xs text-primary-foreground/60">{s.classes}</span>
                     </span>
                   </button>
                 </li>
@@ -108,7 +108,7 @@ export function PathwaySection() {
               </p>
               <div className="md:col-span-6">
                 <h3 className="font-serif text-3xl tracking-tight">{stage.name}</h3>
-                <p className="mt-1 text-sm text-gold-soft">{stage.grades}</p>
+                <p className="mt-1 text-sm text-gold-soft">{stage.classes}</p>
               </div>
               <p className="text-base leading-relaxed text-primary-foreground/75 md:col-span-4">{stage.body}</p>
             </motion.div>

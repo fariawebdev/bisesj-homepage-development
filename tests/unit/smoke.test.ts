@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { SCHOOL } from '@/src/content'
+import { SCHOOL } from '@/lib/content'
 
 describe('Basic smoke test', () => {
   it('has valid school constant', () => {
