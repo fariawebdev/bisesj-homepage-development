@@ -4,7 +4,7 @@
  * Mandate:
  * - "Grade" and "KG" do not exist.
  * - Levels: Pre-Reception, Reception, Year 1 to Year 10, Year 11 (AS Level), Year 12 (A Level).
- * - Stages: Early Years, Primary, Lower Secondary, Cambridge IGCSE, Cambridge International AS & A Level.
+ * - Stages: Early Years, Primary, Lower Secondary, Cambridge IGCSE, AS & A Level.
  */
 
 export type StageName =
@@ -13,7 +13,6 @@ export type StageName =
   | 'Lower Secondary'
   | 'Cambridge IGCSE'
   | 'AS & A Level'
-  | 'Cambridge International AS & A Level'
 
 export interface SchoolClass {
   slug: string

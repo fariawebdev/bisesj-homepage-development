@@ -2,8 +2,9 @@
 
 import { cn } from '@/lib/utils'
 import { ASSETS } from '@/lib/assets'
-import { STATS, TRUST } from '@/lib/content'
-import { CountUp, Reveal } from './motion'
+import { TRUST } from '@/lib/content'
+import { SITE_CONFIG } from '@/lib/site-config'
+import { Reveal } from './motion'
 import { SafeImage } from './safe-image'
 
 export function TrustStrip() {
@@ -45,7 +46,7 @@ export function StatsBand() {
     <section aria-label="BISESJ at a glance" className="bg-background py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-5 md:px-6">
         <dl className="grid grid-cols-2 overflow-hidden rounded-[24px] border border-border bg-card shadow-soft md:grid-cols-5">
-          {STATS.map((s, i) => (
+          {SITE_CONFIG.stats.map((s, i) => (
             <Reveal
               key={s.label}
               delay={i * 0.06}
@@ -53,31 +54,16 @@ export function StatsBand() {
                 'flex flex-col justify-between gap-6 border-border p-6 md:p-8',
                 (i === 0 || i === 3) && 'border-e',
                 i < 3 && 'border-b md:border-b-0',
-                i < STATS.length - 1 && 'md:border-e',
+                i < SITE_CONFIG.stats.length - 1 && 'md:border-e',
                 i === 2 && 'col-span-2 md:col-span-1',
               )}
             >
               <dt className="order-2 text-sm font-medium text-muted-foreground">{s.label}</dt>
               <dd className="order-1 font-serif text-4xl leading-none tracking-tight text-primary md:text-5xl">
-                {s.format === 'year' ? (
-                  <span className="tabular-nums">{s.value}</span>
-                ) : s.value !== null ? (
-                  <CountUp
-                    to={s.value}
-                    from={Math.floor(s.value * 0.85)}
-                    suffix={s.suffix}
-                  />
-                ) : s.text ? (
-                  <span className="block text-2xl leading-tight md:text-[1.6rem]">{s.text}</span>
+                {s.format === 'text' ? (
+                  <span className="block text-2xl leading-tight md:text-[1.6rem]">{s.displayValue}</span>
                 ) : (
-                  <span className="flex flex-col gap-2">
-                    <span aria-hidden="true" className="text-gold">
-                      —
-                    </span>
-                    <span className="font-sans text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                      {s.note}
-                    </span>
-                  </span>
+                  <span className="tabular-nums">{s.displayValue}</span>
                 )}
               </dd>
             </Reveal>

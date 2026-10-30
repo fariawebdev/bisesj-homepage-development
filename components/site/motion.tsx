@@ -1,10 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import {
-  animate,
   motion,
-  useInView,
   useMotionValue,
   useReducedMotion,
   useSpring,
@@ -63,47 +60,5 @@ export function Magnetic({ children, className }: { children: React.ReactNode; c
     >
       {children}
     </motion.div>
-  )
-}
-
-/**
- * Counts up from a nearby value when scrolled into view.
- * Initializes to the final number so non-JS and SSR render the exact final statistics.
- */
-export function CountUp({
-  to,
-  from,
-  suffix = '',
-  grouping = true,
-}: {
-  to: number
-  from?: number
-  suffix?: string
-  grouping?: boolean
-}) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
-  const reduce = useReducedMotion()
-  const start = from ?? Math.floor(to * 0.85)
-  const [value, setValue] = useState(to)
-
-  useEffect(() => {
-    if (!inView || reduce) {
-      return
-    }
-    const controls = animate(start, to, {
-      duration: 1.8,
-      ease: [0.16, 1, 0.3, 1],
-      onUpdate: (v) => setValue(Math.round(v)),
-    })
-    return () => controls.stop()
-  }, [inView, reduce, start, to])
-
-  const display = grouping ? value.toLocaleString('en-US') : String(value)
-  return (
-    <span ref={ref} className="tabular-nums">
-      {display}
-      {suffix}
-    </span>
   )
 }

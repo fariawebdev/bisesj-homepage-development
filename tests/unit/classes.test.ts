@@ -10,7 +10,7 @@ import {
 } from '@/lib/classes'
 import { PATHWAY, ENQUIRY } from '@/lib/content'
 
-describe('Classes and Pathway Foundation (S2-02)', () => {
+describe('Classes and Pathway Foundation (S2-02 & S2-10)', () => {
   it('defines the exact 14 levels with correct slugs, labels, stages, and order', () => {
     expect(CLASSES).toHaveLength(14)
 
@@ -68,7 +68,7 @@ describe('Classes and Pathway Foundation (S2-02)', () => {
     expect(advanced.map((c) => c.slug)).toEqual(['year-11', 'year-12'])
   })
 
-  it('configures pathway stages correctly with matching classesLabel', () => {
+  it('configures pathway stages correctly with matching classesLabel and no duplicate stage names', () => {
     expect(PATHWAY_STAGES).toHaveLength(5)
     expect(PATHWAY_STAGES[0].name).toBe('Early Years')
     expect(PATHWAY_STAGES[0].classesLabel).toBe('Pre-Reception, Reception')
@@ -84,6 +84,20 @@ describe('Classes and Pathway Foundation (S2-02)', () => {
 
     expect(PATHWAY_STAGES[4].name).toBe('AS & A Level')
     expect(PATHWAY_STAGES[4].classesLabel).toBe('Year 11 to 12')
+
+    // Disallow duplicate or obsolete long stage names
+    const allStageNames = PATHWAY_STAGES.map((s) => s.name)
+    expect(allStageNames).toEqual([
+      'Early Years',
+      'Primary',
+      'Lower Secondary',
+      'Cambridge IGCSE',
+      'AS & A Level',
+    ])
+    expect(allStageNames).not.toContain('Cambridge International AS & A Level')
+
+    const allClassesStages = CLASSES.map((c) => c.stage)
+    expect(allClassesStages).not.toContain('Cambridge International AS & A Level')
   })
 
   it('ensures "Grade" and "KG" do not appear anywhere in classes, pathway, or enquiry definitions', () => {

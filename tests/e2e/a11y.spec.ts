@@ -19,9 +19,11 @@ const ROUTES = [
   { name: '404', path: '/en/non-existent-page-404' },
 ]
 
-test.describe('S2-09: Comprehensive Accessibility Audits across all 15 routes (axe-core)', () => {
+test.describe('S2-09 & S2-10: Comprehensive Accessibility Audits across all 15 routes (axe-core)', () => {
   for (const route of ROUTES) {
-    test(`${route.name} (${route.path}) has zero critical or serious accessibility violations`, async ({ page }) => {
+    test(`${route.name} (${route.path}) has zero accessibility violations (critical, serious, moderate, minor)`, async ({
+      page,
+    }) => {
       await page.goto(route.path)
 
       const accessibilityScanResults = await new AxeBuilder({ page })
@@ -33,15 +35,28 @@ test.describe('S2-09: Comprehensive Accessibility Audits across all 15 routes (a
       const moderate = accessibilityScanResults.violations.filter((v) => v.impact === 'moderate')
       const minor = accessibilityScanResults.violations.filter((v) => v.impact === 'minor')
 
-      if (moderate.length > 0 || minor.length > 0) {
-        console.log(`[A11Y NOTICE] ${route.name} (${route.path}): moderate=${moderate.length}, minor=${minor.length}`)
-        for (const v of [...moderate, ...minor]) {
-          console.log(`  - [${v.impact}] ${v.id}: ${v.help} (${v.nodes.length} occurrences)`)
+      console.log(
+        `[AXE RESULTS] ${route.name.padEnd(25)} critical=${critical.length} serious=${serious.length} moderate=${moderate.length} minor=${minor.length} total=${accessibilityScanResults.violations.length}`
+      )
+
+      if (accessibilityScanResults.violations.length > 0) {
+        for (const v of accessibilityScanResults.violations) {
+          console.log(`  -> [${v.impact}] ${v.id}: ${v.help} (${v.nodes.length} nodes)`)
         }
       }
 
-      expect(critical, `Critical a11y violations found on ${route.name}`).toEqual([])
-      expect(serious, `Serious a11y violations found on ${route.name}`).toEqual([])
+      // Assert zero violations at ANY impact level (critical, serious, moderate, minor)
+      expect(
+        accessibilityScanResults.violations,
+        `Accessibility violations found on ${route.name}: ${JSON.stringify(
+          accessibilityScanResults.violations.map((v) => ({
+            id: v.id,
+            impact: v.impact,
+            help: v.help,
+            nodes: v.nodes.length,
+          }))
+        )}`
+      ).toEqual([])
     })
   }
 })

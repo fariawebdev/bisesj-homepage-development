@@ -1,8 +1,11 @@
 import { test, expect } from '@playwright/test'
 import { SITE_CONFIG } from '../../lib/site-config'
 
-test.describe('S2-05: Inner Pages, Locked Routine, Contact Map & Styled 404', () => {
-  test('Routine page shows locked state with approved copy and contact button', async ({ page }) => {
+test.describe('S2-05 & S2-10: Inner Pages, Locked Routine, Contact Map & Styled 404', () => {
+  test('Routine page shows locked state when features.routine is locked', async ({ page }) => {
+    // Assert that the site configuration flag is set to 'locked'
+    expect(SITE_CONFIG.features.routine).toBe('locked')
+
     await page.goto('/en/routine')
 
     const heading = page.locator('h1').first()
@@ -16,6 +19,25 @@ test.describe('S2-05: Inner Pages, Locked Routine, Contact Map & Styled 404', ()
     const contactBtn = page.getByRole('link', { name: /Contact School Office/i })
     await expect(contactBtn).toBeVisible()
     await expect(contactBtn).toHaveAttribute('href', '/contact')
+  })
+
+  test('Routine page shows no timetable text or table when locked', async ({ page }) => {
+    // Verify feature flag configuration
+    expect(SITE_CONFIG.features.routine).toBe('locked')
+
+    await page.goto('/en/routine')
+
+    // Must NOT contain an HTML table or table role
+    expect(await page.locator('table').count()).toBe(0)
+    expect(await page.getByRole('table').count()).toBe(0)
+
+    // Must NOT contain public schedule or timetable text
+    const pageText = await page.locator('main').textContent()
+    expect(pageText).not.toContain('Period 1')
+    expect(pageText).not.toContain('Period 2')
+    expect(pageText).not.toContain('Timetable Schedule')
+    expect(pageText).not.toContain('Sunday - Thursday')
+    expect(pageText).not.toContain('8:00 AM')
   })
 
   test('Contact page has click-to-load interactive map and parent feedback link', async ({ page }) => {
