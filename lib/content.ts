@@ -333,7 +333,7 @@ export const FOOTER = {
       ],
     },
   ] as { title: string; links: { label: string; link: LinkKey }[] }[],
-  instagramLabel: 'Follow us on Instagram',
+  instagramLabel: 'Follow @bisesjsa on Instagram',
   copyright: SITE_CONFIG.footer.copyright,
   credit: SITE_CONFIG.footer.credit,
 }

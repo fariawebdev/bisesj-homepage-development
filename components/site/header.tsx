@@ -156,7 +156,7 @@ function LanguageSwitcher({ className }: { className?: string }) {
           lang={l.code}
           onClick={() => handleSelectLocale(l.code)}
           aria-pressed={locale === l.code}
-          aria-label={l.name}
+          title={l.name}
           className={cn(
             'rounded-full px-2.5 py-1 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-gold',
             locale === l.code ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-primary',
@@ -261,7 +261,7 @@ function Navbar() {
           scrolled ? 'shadow-lift' : 'shadow-soft',
         )}
       >
-        <SmartLink to="home" label={`${SCHOOL.name}, home`} className="flex items-center gap-3 rounded-xl">
+        <SmartLink to="home" className="flex items-center gap-3 rounded-xl">
           <SafeImage
             src={ASSETS.logo}
             alt=""

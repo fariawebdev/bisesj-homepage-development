@@ -8,8 +8,8 @@ import { useLocale } from './i18n'
 
 type SmartLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
   to: LinkKey
-  /** Human-readable name used to build the accessible label. */
-  label: string
+  /** Human-readable name used to build the accessible label. If omitted, uses visible children. */
+  label?: string
 }
 
 /**
@@ -35,7 +35,7 @@ export const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(function 
         <Link
           ref={ref}
           href={localePath}
-          aria-label={label}
+          aria-label={label || undefined}
           onClick={onClick}
           {...rest}
         >
@@ -56,7 +56,7 @@ export const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(function 
         <Link
           ref={ref}
           href={`/${locale}`}
-          aria-label={label}
+          aria-label={label || undefined}
           onClick={onClick}
           {...rest}
         >
@@ -69,7 +69,7 @@ export const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(function 
       <a
         ref={ref}
         href={link.href}
-        aria-label={label}
+        aria-label={label || undefined}
         onClick={(e) => {
           if (to === 'home') {
             e.preventDefault()
@@ -90,7 +90,7 @@ export const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(function 
       href={link.href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${label} ${t.newTab}`}
+      aria-label={label ? `${label} ${t.newTab}` : undefined}
       onClick={onClick}
       {...rest}
     >
