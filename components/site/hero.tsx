@@ -53,10 +53,16 @@ export function Hero() {
             {...fadeUp(0.1)}
             className="flex flex-col gap-1.5"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-soft">
+            <span
+              data-testid="hero-eyebrow-line-1"
+              className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-soft"
+            >
               {h.eyebrowLine1}
             </span>
-            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-soft">
+            <span
+              data-testid="hero-eyebrow-line-2"
+              className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-soft"
+            >
               <span aria-hidden="true" className="h-px w-8 bg-gold" />
               {h.eyebrowLine2}
             </span>
@@ -74,7 +80,11 @@ export function Hero() {
             </motion.span>
           </h1>
 
-          <motion.p {...fadeUp(0.45)} className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:mt-7 sm:text-lg md:text-xl">
+          <motion.p
+            {...fadeUp(0.45)}
+            data-testid="hero-subtitle"
+            className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/80 sm:mt-7 sm:text-lg md:text-xl"
+          >
             {h.sub}
           </motion.p>
 
@@ -143,7 +153,7 @@ function HeroCard({
   delay,
   offset,
 }: {
-  icon: React.ReactNode
+  icon: React.ComponentType<{ className?: string }> | React.ReactNode
   title: string
   body: string
   cta: React.ReactNode
@@ -160,7 +170,7 @@ function HeroCard({
     >
       <div className="flex items-start gap-4">
         <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-gold text-primary">
-          {icon}
+          {icon as React.ReactNode}
         </span>
         <div className="flex flex-col gap-2">
           <h2 className="font-serif text-xl leading-snug">{title}</h2>

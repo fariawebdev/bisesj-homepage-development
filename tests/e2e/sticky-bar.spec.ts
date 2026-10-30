@@ -5,7 +5,7 @@ const TEST_VIEWPORTS = [
   { width: 390, height: 844, label: '390x844' },
 ]
 
-test.describe('S2-04 & S2-10: Mobile sticky action bar clearance and overlap checks', () => {
+test.describe('S2-04, S2-10 & S3-00: Mobile sticky action bar clearance and overlap checks', () => {
   for (const vp of TEST_VIEWPORTS) {
     test(`does not overlap hero elements at initial screen or footer after scrolling on ${vp.label}`, async ({
       page,
@@ -42,22 +42,29 @@ test.describe('S2-04 & S2-10: Mobile sticky action bar clearance and overlap che
       // ==========================================
       // 1. FIRST SCREEN CHECKS (At Top of Page)
       // ==========================================
-      const heroSection = page.locator('section[aria-labelledby="hero-title"]')
-
-      // Hero Eyebrows
-      const eyebrowLine1 = heroSection.getByText('BANGLADESH INTERNATIONAL SCHOOL ENGLISH SECTION, JEDDAH')
-      const eyebrowLine2 = heroSection.getByText('ESTABLISHED 1993')
+      // Select eyebrow lines by testid (S3-00)
+      const eyebrowLine1 = page.getByTestId('hero-eyebrow-line-1')
+      const eyebrowLine2 = page.getByTestId('hero-eyebrow-line-2')
       await expect(eyebrowLine1).toBeVisible()
       await expect(eyebrowLine2).toBeVisible()
       assertNoOverlap(await eyebrowLine1.boundingBox(), 'Hero eyebrow line 1 (at first screen)')
       assertNoOverlap(await eyebrowLine2.boundingBox(), 'Hero eyebrow line 2 (at first screen)')
 
-      // Hero Paragraph (subtitle)
-      const heroParagraph = heroSection.locator('p').first()
-      await expect(heroParagraph).toBeVisible()
-      assertNoOverlap(await heroParagraph.boundingBox(), 'Hero paragraph (at first screen)')
+      // Select hero subtitle by testid (S3-00)
+      const heroSubtitle = page.getByTestId('hero-subtitle')
+      await expect(heroSubtitle).toBeVisible()
+      assertNoOverlap(await heroSubtitle.boundingBox(), 'Hero subtitle (at first screen)')
+
+      // Assert the subtitle is not the eyebrow (S3-00)
+      const subtitleText = (await heroSubtitle.textContent())?.trim() ?? ''
+      const eyebrow1Text = (await eyebrowLine1.textContent())?.trim() ?? ''
+      const eyebrow2Text = (await eyebrowLine2.textContent())?.trim() ?? ''
+      expect(subtitleText).not.toBe(eyebrow1Text)
+      expect(subtitleText).not.toBe(eyebrow2Text)
+      expect(subtitleText).toContain('Cambridge IGCSE and AS & A Level')
 
       // Hero Buttons (Apply / Registration CTA)
+      const heroSection = page.locator('section[aria-labelledby="hero-title"]')
       const heroApplyBtn = heroSection.getByRole('link', { name: /Apply/i })
       await expect(heroApplyBtn).toBeVisible()
       assertNoOverlap(await heroApplyBtn.boundingBox(), 'Hero Apply button (at first screen)')

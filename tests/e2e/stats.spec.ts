@@ -14,7 +14,7 @@ test.describe('S1-11 & S2-10: Trust stats static values and permanence', () => {
     const readAllStats = async () => {
       const results: Record<string, string> = {}
       for (const stat of SITE_CONFIG.stats) {
-        const item = statsSection.locator('dl > div, dl > Comp').filter({ hasText: stat.label })
+        const item = statsSection.locator('dl > div').filter({ hasText: stat.label })
         const val = (await item.locator('dd').textContent())?.trim() ?? ''
         results[stat.label] = val
       }
@@ -53,7 +53,7 @@ test.describe('S1-11 & S2-10: Trust stats static values and permanence', () => {
     await expect(statsSection).toBeVisible()
 
     for (const stat of SITE_CONFIG.stats) {
-      const item = statsSection.locator('dl > div, dl > Comp').filter({ hasText: stat.label })
+      const item = statsSection.locator('dl > div').filter({ hasText: stat.label })
       await expect(item.locator('dd')).toHaveText(stat.displayValue)
     }
   })
