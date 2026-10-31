@@ -1,0 +1,984 @@
+{
+  "academicYear": "2026-27",
+  "generatedAt": "2026-10-31T10:20:18.752Z",
+  "totalClasses": 14,
+  "totalFiles": 85,
+  "classes": [
+    {
+      "slug": "pre-reception",
+      "name": "Pre-Reception",
+      "stage": "Early Years",
+      "academicYear": "2026-27",
+      "totalFiles": 1,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS",
+          "displayName": "Complete Class Syllabus",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/pre-reception/syllabus.pdf",
+          "fileSizeBytes": 1687922,
+          "fileSizeFormatted": "1648 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "reception",
+      "name": "Reception",
+      "stage": "Early Years",
+      "academicYear": "2026-27",
+      "totalFiles": 1,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS",
+          "displayName": "Complete Class Syllabus",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/reception/syllabus.pdf",
+          "fileSizeBytes": 1729252,
+          "fileSizeFormatted": "1689 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-1",
+      "name": "Year 1",
+      "stage": "Primary",
+      "academicYear": "2026-27",
+      "totalFiles": 1,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS",
+          "displayName": "Complete Class Syllabus",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/year-1/syllabus.pdf",
+          "fileSizeBytes": 2629625,
+          "fileSizeFormatted": "2568 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-2",
+      "name": "Year 2",
+      "stage": "Primary",
+      "academicYear": "2026-27",
+      "totalFiles": 1,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS",
+          "displayName": "Complete Class Syllabus",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/year-2/syllabus.pdf",
+          "fileSizeBytes": 2448440,
+          "fileSizeFormatted": "2391 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-3",
+      "name": "Year 3",
+      "stage": "Primary",
+      "academicYear": "2026-27",
+      "totalFiles": 1,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS",
+          "displayName": "Complete Class Syllabus",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/year-3/syllabus.pdf",
+          "fileSizeBytes": 2414378,
+          "fileSizeFormatted": "2358 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-4",
+      "name": "Year 4",
+      "stage": "Primary",
+      "academicYear": "2026-27",
+      "totalFiles": 1,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS",
+          "displayName": "Complete Class Syllabus",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/year-4/syllabus.pdf",
+          "fileSizeBytes": 2311152,
+          "fileSizeFormatted": "2257 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-5",
+      "name": "Year 5",
+      "stage": "Primary",
+      "academicYear": "2026-27",
+      "totalFiles": 1,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS",
+          "displayName": "Complete Class Syllabus",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/year-5/syllabus.pdf",
+          "fileSizeBytes": 2303399,
+          "fileSizeFormatted": "2249 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-6",
+      "name": "Year 6",
+      "stage": "Lower Secondary",
+      "academicYear": "2026-27",
+      "totalFiles": 14,
+      "items": [
+        {
+          "subjectSlug": "syllabus",
+          "subjectCode": "SYLLABUS-OVERVIEW",
+          "displayName": "Year 6 Syllabus Overview",
+          "fileName": "syllabus.pdf",
+          "url": "/documents/syllabus/year-6/syllabus.pdf",
+          "fileSizeBytes": 3019029,
+          "fileSizeFormatted": "2948 KB",
+          "flag": "Flagged: Standalone whole-class syllabus overview"
+        },
+        {
+          "subjectSlug": "arabic",
+          "subjectCode": "ARB",
+          "displayName": "Arabic",
+          "fileName": "arabic.pdf",
+          "url": "/documents/syllabus/year-6/arabic.pdf",
+          "fileSizeBytes": 3018999,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "art-and-craft",
+          "subjectCode": "ART",
+          "displayName": "Art and Craft",
+          "fileName": "art-and-craft.pdf",
+          "url": "/documents/syllabus/year-6/art-and-craft.pdf",
+          "fileSizeBytes": 3018745,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "bengali",
+          "subjectCode": "BEN",
+          "displayName": "Bengali",
+          "fileName": "bengali.pdf",
+          "url": "/documents/syllabus/year-6/bengali.pdf",
+          "fileSizeBytes": 3018586,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "english-paper-1",
+          "subjectCode": "ENG-P1",
+          "displayName": "English Paper 1",
+          "fileName": "english-paper-1.pdf",
+          "url": "/documents/syllabus/year-6/english-paper-1.pdf",
+          "fileSizeBytes": 3018873,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "english-paper-2",
+          "subjectCode": "ENG-P2",
+          "displayName": "English Paper 2",
+          "fileName": "english-paper-2.pdf",
+          "url": "/documents/syllabus/year-6/english-paper-2.pdf",
+          "fileSizeBytes": 3018641,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "islamic-studies",
+          "subjectCode": "ISL",
+          "displayName": "Islamic Studies",
+          "fileName": "islamic-studies.pdf",
+          "url": "/documents/syllabus/year-6/islamic-studies.pdf",
+          "fileSizeBytes": 3018770,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "it",
+          "subjectCode": "IT",
+          "displayName": "IT",
+          "fileName": "it.pdf",
+          "url": "/documents/syllabus/year-6/it.pdf",
+          "fileSizeBytes": 3018582,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "main-arabic",
+          "subjectCode": "MAIN-ARB",
+          "displayName": "Main Arabic",
+          "fileName": "main-arabic.pdf",
+          "url": "/documents/syllabus/year-6/main-arabic.pdf",
+          "fileSizeBytes": 3018744,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "mathematics",
+          "subjectCode": "MATH",
+          "displayName": "Mathematics",
+          "fileName": "mathematics.pdf",
+          "url": "/documents/syllabus/year-6/mathematics.pdf",
+          "fileSizeBytes": 3018633,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "quran",
+          "subjectCode": "QUR",
+          "displayName": "Quran",
+          "fileName": "quran.pdf",
+          "url": "/documents/syllabus/year-6/quran.pdf",
+          "fileSizeBytes": 3018760,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "sac",
+          "subjectCode": "SAC",
+          "displayName": "SAC",
+          "fileName": "sac.pdf",
+          "url": "/documents/syllabus/year-6/sac.pdf",
+          "fileSizeBytes": 3018857,
+          "fileSizeFormatted": "2948 KB",
+          "flag": "Flagged abbreviation: Displayed as SAC (Eva confirmation needed: Saudi Arabian Culture / Social Studies)"
+        },
+        {
+          "subjectSlug": "science",
+          "subjectCode": "SCI",
+          "displayName": "Science",
+          "fileName": "science.pdf",
+          "url": "/documents/syllabus/year-6/science.pdf",
+          "fileSizeBytes": 3018999,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "social-studies",
+          "subjectCode": "SOC",
+          "displayName": "Social Studies",
+          "fileName": "social-studies.pdf",
+          "url": "/documents/syllabus/year-6/social-studies.pdf",
+          "fileSizeBytes": 3018881,
+          "fileSizeFormatted": "2948 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-7",
+      "name": "Year 7",
+      "stage": "Lower Secondary",
+      "academicYear": "2026-27",
+      "totalFiles": 9,
+      "items": [
+        {
+          "subjectSlug": "arabic",
+          "subjectCode": "ARB",
+          "displayName": "Arabic",
+          "fileName": "arabic.pdf",
+          "url": "/documents/syllabus/year-7/arabic.pdf",
+          "fileSizeBytes": 317394,
+          "fileSizeFormatted": "310 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "bengali",
+          "subjectCode": "BEN",
+          "displayName": "Bengali",
+          "fileName": "bengali.pdf",
+          "url": "/documents/syllabus/year-7/bengali.pdf",
+          "fileSizeBytes": 342440,
+          "fileSizeFormatted": "334 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "biology",
+          "subjectCode": "BIO",
+          "displayName": "Biology",
+          "fileName": "biology.pdf",
+          "url": "/documents/syllabus/year-7/biology.pdf",
+          "fileSizeBytes": 319636,
+          "fileSizeFormatted": "312 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "chemistry",
+          "subjectCode": "CHEM",
+          "displayName": "Chemistry",
+          "fileName": "chemistry.pdf",
+          "url": "/documents/syllabus/year-7/chemistry.pdf",
+          "fileSizeBytes": 312049,
+          "fileSizeFormatted": "305 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "english",
+          "subjectCode": "ENG",
+          "displayName": "English",
+          "fileName": "english.pdf",
+          "url": "/documents/syllabus/year-7/english.pdf",
+          "fileSizeBytes": 317582,
+          "fileSizeFormatted": "310 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "ict",
+          "subjectCode": "ICT",
+          "displayName": "ICT",
+          "fileName": "ict.pdf",
+          "url": "/documents/syllabus/year-7/ict.pdf",
+          "fileSizeBytes": 317833,
+          "fileSizeFormatted": "310 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "islamic-studies",
+          "subjectCode": "ISL",
+          "displayName": "Islamic Studies",
+          "fileName": "islamic-studies.pdf",
+          "url": "/documents/syllabus/year-7/islamic-studies.pdf",
+          "fileSizeBytes": 315411,
+          "fileSizeFormatted": "308 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "mathematics",
+          "subjectCode": "MATH",
+          "displayName": "Mathematics",
+          "fileName": "mathematics.pdf",
+          "url": "/documents/syllabus/year-7/mathematics.pdf",
+          "fileSizeBytes": 316533,
+          "fileSizeFormatted": "309 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "physics",
+          "subjectCode": "PHY",
+          "displayName": "Physics",
+          "fileName": "physics.pdf",
+          "url": "/documents/syllabus/year-7/physics.pdf",
+          "fileSizeBytes": 314160,
+          "fileSizeFormatted": "307 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-8",
+      "name": "Year 8",
+      "stage": "Lower Secondary",
+      "academicYear": "2026-27",
+      "totalFiles": 11,
+      "items": [
+        {
+          "subjectSlug": "accounting",
+          "subjectCode": "ACC",
+          "displayName": "Accounting",
+          "fileName": "accounting.pdf",
+          "url": "/documents/syllabus/year-8/accounting.pdf",
+          "fileSizeBytes": 332048,
+          "fileSizeFormatted": "324 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "arabic",
+          "subjectCode": "ARB",
+          "displayName": "Arabic",
+          "fileName": "arabic.pdf",
+          "url": "/documents/syllabus/year-8/arabic.pdf",
+          "fileSizeBytes": 316468,
+          "fileSizeFormatted": "309 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "b-st",
+          "subjectCode": "B.ST",
+          "displayName": "B.ST",
+          "fileName": "b-st.pdf",
+          "url": "/documents/syllabus/year-8/b-st.pdf",
+          "fileSizeBytes": 329446,
+          "fileSizeFormatted": "322 KB",
+          "flag": "Flagged abbreviation: Displayed as B.ST (Eva confirmation needed: Business Studies)"
+        },
+        {
+          "subjectSlug": "bengali",
+          "subjectCode": "BEN",
+          "displayName": "Bengali",
+          "fileName": "bengali.pdf",
+          "url": "/documents/syllabus/year-8/bengali.pdf",
+          "fileSizeBytes": 333311,
+          "fileSizeFormatted": "325 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "biology",
+          "subjectCode": "BIO",
+          "displayName": "Biology",
+          "fileName": "biology.pdf",
+          "url": "/documents/syllabus/year-8/biology.pdf",
+          "fileSizeBytes": 315100,
+          "fileSizeFormatted": "308 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "chemistry",
+          "subjectCode": "CHEM",
+          "displayName": "Chemistry",
+          "fileName": "chemistry.pdf",
+          "url": "/documents/syllabus/year-8/chemistry.pdf",
+          "fileSizeBytes": 318097,
+          "fileSizeFormatted": "311 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "english",
+          "subjectCode": "ENG",
+          "displayName": "English",
+          "fileName": "english.pdf",
+          "url": "/documents/syllabus/year-8/english.pdf",
+          "fileSizeBytes": 313981,
+          "fileSizeFormatted": "307 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "ict",
+          "subjectCode": "ICT",
+          "displayName": "ICT",
+          "fileName": "ict.pdf",
+          "url": "/documents/syllabus/year-8/ict.pdf",
+          "fileSizeBytes": 326146,
+          "fileSizeFormatted": "319 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "islamic-studies",
+          "subjectCode": "ISL",
+          "displayName": "Islamic Studies",
+          "fileName": "islamic-studies.pdf",
+          "url": "/documents/syllabus/year-8/islamic-studies.pdf",
+          "fileSizeBytes": 313902,
+          "fileSizeFormatted": "307 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "mathematics",
+          "subjectCode": "MATH",
+          "displayName": "Mathematics",
+          "fileName": "mathematics.pdf",
+          "url": "/documents/syllabus/year-8/mathematics.pdf",
+          "fileSizeBytes": 315527,
+          "fileSizeFormatted": "308 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "physics",
+          "subjectCode": "PHY",
+          "displayName": "Physics",
+          "fileName": "physics.pdf",
+          "url": "/documents/syllabus/year-8/physics.pdf",
+          "fileSizeBytes": 319641,
+          "fileSizeFormatted": "312 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-9",
+      "name": "Year 9",
+      "stage": "Cambridge IGCSE",
+      "academicYear": "2026-27",
+      "totalFiles": 13,
+      "items": [
+        {
+          "subjectSlug": "accounting",
+          "subjectCode": "ACC",
+          "displayName": "Accounting",
+          "fileName": "accounting.pdf",
+          "url": "/documents/syllabus/year-9/accounting.pdf",
+          "fileSizeBytes": 342197,
+          "fileSizeFormatted": "334 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "additional-mathematics",
+          "subjectCode": "ADD-MATH",
+          "displayName": "Additional Mathematics",
+          "fileName": "additional-mathematics.pdf",
+          "url": "/documents/syllabus/year-9/additional-mathematics.pdf",
+          "fileSizeBytes": 322401,
+          "fileSizeFormatted": "315 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "arabic",
+          "subjectCode": "ARB",
+          "displayName": "Arabic",
+          "fileName": "arabic.pdf",
+          "url": "/documents/syllabus/year-9/arabic.pdf",
+          "fileSizeBytes": 333090,
+          "fileSizeFormatted": "325 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "b-st",
+          "subjectCode": "B.ST",
+          "displayName": "B.ST",
+          "fileName": "b-st.pdf",
+          "url": "/documents/syllabus/year-9/b-st.pdf",
+          "fileSizeBytes": 330963,
+          "fileSizeFormatted": "323 KB",
+          "flag": "Flagged abbreviation: Displayed as B.ST (Eva confirmation needed: Business Studies)"
+        },
+        {
+          "subjectSlug": "bengali",
+          "subjectCode": "BEN",
+          "displayName": "Bengali",
+          "fileName": "bengali.pdf",
+          "url": "/documents/syllabus/year-9/bengali.pdf",
+          "fileSizeBytes": 327407,
+          "fileSizeFormatted": "320 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "biology",
+          "subjectCode": "BIO",
+          "displayName": "Biology",
+          "fileName": "biology.pdf",
+          "url": "/documents/syllabus/year-9/biology.pdf",
+          "fileSizeBytes": 309645,
+          "fileSizeFormatted": "302 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "chemistry",
+          "subjectCode": "CHEM",
+          "displayName": "Chemistry",
+          "fileName": "chemistry.pdf",
+          "url": "/documents/syllabus/year-9/chemistry.pdf",
+          "fileSizeBytes": 318792,
+          "fileSizeFormatted": "311 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "cs",
+          "subjectCode": "CS",
+          "displayName": "CS",
+          "fileName": "cs.pdf",
+          "url": "/documents/syllabus/year-9/cs.pdf",
+          "fileSizeBytes": 293750,
+          "fileSizeFormatted": "287 KB",
+          "flag": "Flagged abbreviation: Displayed as CS (Eva confirmation needed: Computer Science)"
+        },
+        {
+          "subjectSlug": "english",
+          "subjectCode": "ENG",
+          "displayName": "English",
+          "fileName": "english.pdf",
+          "url": "/documents/syllabus/year-9/english.pdf",
+          "fileSizeBytes": 354556,
+          "fileSizeFormatted": "346 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "ict",
+          "subjectCode": "ICT",
+          "displayName": "ICT",
+          "fileName": "ict.pdf",
+          "url": "/documents/syllabus/year-9/ict.pdf",
+          "fileSizeBytes": 323183,
+          "fileSizeFormatted": "316 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "mathematics",
+          "subjectCode": "MATH",
+          "displayName": "Mathematics",
+          "fileName": "mathematics.pdf",
+          "url": "/documents/syllabus/year-9/mathematics.pdf",
+          "fileSizeBytes": 325842,
+          "fileSizeFormatted": "318 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "physics",
+          "subjectCode": "PHY",
+          "displayName": "Physics",
+          "fileName": "physics.pdf",
+          "url": "/documents/syllabus/year-9/physics.pdf",
+          "fileSizeBytes": 332097,
+          "fileSizeFormatted": "324 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "sac",
+          "subjectCode": "SAC",
+          "displayName": "SAC",
+          "fileName": "sac.pdf",
+          "url": "/documents/syllabus/year-9/sac.pdf",
+          "fileSizeBytes": 322965,
+          "fileSizeFormatted": "315 KB",
+          "flag": "Flagged abbreviation: Displayed as SAC (Eva confirmation needed: Saudi Arabian Culture / Social Studies)"
+        }
+      ]
+    },
+    {
+      "slug": "year-10",
+      "name": "Year 10",
+      "stage": "Cambridge IGCSE",
+      "academicYear": "2026-27",
+      "totalFiles": 13,
+      "items": [
+        {
+          "subjectSlug": "accounting",
+          "subjectCode": "ACC",
+          "displayName": "Accounting",
+          "fileName": "accounting.pdf",
+          "url": "/documents/syllabus/year-10/accounting.pdf",
+          "fileSizeBytes": 304991,
+          "fileSizeFormatted": "298 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "additional-mathematics",
+          "subjectCode": "ADD-MATH",
+          "displayName": "Additional Mathematics",
+          "fileName": "additional-mathematics.pdf",
+          "url": "/documents/syllabus/year-10/additional-mathematics.pdf",
+          "fileSizeBytes": 312841,
+          "fileSizeFormatted": "306 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "arabic",
+          "subjectCode": "ARB",
+          "displayName": "Arabic",
+          "fileName": "arabic.pdf",
+          "url": "/documents/syllabus/year-10/arabic.pdf",
+          "fileSizeBytes": 320962,
+          "fileSizeFormatted": "313 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "b-st",
+          "subjectCode": "B.ST",
+          "displayName": "B.ST",
+          "fileName": "b-st.pdf",
+          "url": "/documents/syllabus/year-10/b-st.pdf",
+          "fileSizeBytes": 310846,
+          "fileSizeFormatted": "304 KB",
+          "flag": "Flagged abbreviation: Displayed as B.ST (Eva confirmation needed: Business Studies)"
+        },
+        {
+          "subjectSlug": "bengali",
+          "subjectCode": "BEN",
+          "displayName": "Bengali",
+          "fileName": "bengali.pdf",
+          "url": "/documents/syllabus/year-10/bengali.pdf",
+          "fileSizeBytes": 324007,
+          "fileSizeFormatted": "316 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "biology",
+          "subjectCode": "BIO",
+          "displayName": "Biology",
+          "fileName": "biology.pdf",
+          "url": "/documents/syllabus/year-10/biology.pdf",
+          "fileSizeBytes": 302621,
+          "fileSizeFormatted": "296 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "chemistry",
+          "subjectCode": "CHEM",
+          "displayName": "Chemistry",
+          "fileName": "chemistry.pdf",
+          "url": "/documents/syllabus/year-10/chemistry.pdf",
+          "fileSizeBytes": 313681,
+          "fileSizeFormatted": "306 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "cs",
+          "subjectCode": "CS",
+          "displayName": "CS",
+          "fileName": "cs.pdf",
+          "url": "/documents/syllabus/year-10/cs.pdf",
+          "fileSizeBytes": 304325,
+          "fileSizeFormatted": "297 KB",
+          "flag": "Flagged abbreviation: Displayed as CS (Eva confirmation needed: Computer Science)"
+        },
+        {
+          "subjectSlug": "english",
+          "subjectCode": "ENG",
+          "displayName": "English",
+          "fileName": "english.pdf",
+          "url": "/documents/syllabus/year-10/english.pdf",
+          "fileSizeBytes": 286977,
+          "fileSizeFormatted": "280 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "ict",
+          "subjectCode": "ICT",
+          "displayName": "ICT",
+          "fileName": "ict.pdf",
+          "url": "/documents/syllabus/year-10/ict.pdf",
+          "fileSizeBytes": 308314,
+          "fileSizeFormatted": "301 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "islamic-studies",
+          "subjectCode": "ISL",
+          "displayName": "Islamic Studies",
+          "fileName": "islamic-studies.pdf",
+          "url": "/documents/syllabus/year-10/islamic-studies.pdf",
+          "fileSizeBytes": 312976,
+          "fileSizeFormatted": "306 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "mathematics",
+          "subjectCode": "MATH",
+          "displayName": "Mathematics",
+          "fileName": "mathematics.pdf",
+          "url": "/documents/syllabus/year-10/mathematics.pdf",
+          "fileSizeBytes": 311994,
+          "fileSizeFormatted": "305 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "physics",
+          "subjectCode": "PHY",
+          "displayName": "Physics",
+          "fileName": "physics.pdf",
+          "url": "/documents/syllabus/year-10/physics.pdf",
+          "fileSizeBytes": 316620,
+          "fileSizeFormatted": "309 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-11",
+      "name": "Year 11 (AS Level)",
+      "stage": "AS & A Level",
+      "academicYear": "2026-27",
+      "totalFiles": 9,
+      "items": [
+        {
+          "subjectSlug": "accounting",
+          "subjectCode": "ACC",
+          "displayName": "Accounting",
+          "fileName": "accounting.pdf",
+          "url": "/documents/syllabus/year-11/accounting.pdf",
+          "fileSizeBytes": 310654,
+          "fileSizeFormatted": "303 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "arabic",
+          "subjectCode": "ARB",
+          "displayName": "Arabic",
+          "fileName": "arabic.pdf",
+          "url": "/documents/syllabus/year-11/arabic.pdf",
+          "fileSizeBytes": 321456,
+          "fileSizeFormatted": "314 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "b-st",
+          "subjectCode": "B.ST",
+          "displayName": "B.ST",
+          "fileName": "b-st.pdf",
+          "url": "/documents/syllabus/year-11/b-st.pdf",
+          "fileSizeBytes": 310820,
+          "fileSizeFormatted": "304 KB",
+          "flag": "Flagged abbreviation: Displayed as B.ST (Eva confirmation needed: Business Studies)"
+        },
+        {
+          "subjectSlug": "biology",
+          "subjectCode": "BIO",
+          "displayName": "Biology",
+          "fileName": "biology.pdf",
+          "url": "/documents/syllabus/year-11/biology.pdf",
+          "fileSizeBytes": 312229,
+          "fileSizeFormatted": "305 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "chemistry",
+          "subjectCode": "CHEM",
+          "displayName": "Chemistry",
+          "fileName": "chemistry.pdf",
+          "url": "/documents/syllabus/year-11/chemistry.pdf",
+          "fileSizeBytes": 314996,
+          "fileSizeFormatted": "308 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "ict",
+          "subjectCode": "ICT",
+          "displayName": "ICT",
+          "fileName": "ict.pdf",
+          "url": "/documents/syllabus/year-11/ict.pdf",
+          "fileSizeBytes": 314755,
+          "fileSizeFormatted": "307 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "islamic-studies",
+          "subjectCode": "ISL",
+          "displayName": "Islamic Studies",
+          "fileName": "islamic-studies.pdf",
+          "url": "/documents/syllabus/year-11/islamic-studies.pdf",
+          "fileSizeBytes": 315175,
+          "fileSizeFormatted": "308 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "mathematics",
+          "subjectCode": "MATH",
+          "displayName": "Mathematics",
+          "fileName": "mathematics.pdf",
+          "url": "/documents/syllabus/year-11/mathematics.pdf",
+          "fileSizeBytes": 310425,
+          "fileSizeFormatted": "303 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "physics",
+          "subjectCode": "PHY",
+          "displayName": "Physics",
+          "fileName": "physics.pdf",
+          "url": "/documents/syllabus/year-11/physics.pdf",
+          "fileSizeBytes": 306766,
+          "fileSizeFormatted": "300 KB",
+          "flag": null
+        }
+      ]
+    },
+    {
+      "slug": "year-12",
+      "name": "Year 12 (A Level)",
+      "stage": "AS & A Level",
+      "academicYear": "2026-27",
+      "totalFiles": 9,
+      "items": [
+        {
+          "subjectSlug": "accounting",
+          "subjectCode": "ACC",
+          "displayName": "Accounting",
+          "fileName": "accounting.pdf",
+          "url": "/documents/syllabus/year-12/accounting.pdf",
+          "fileSizeBytes": 306266,
+          "fileSizeFormatted": "299 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "arabic",
+          "subjectCode": "ARB",
+          "displayName": "Arabic",
+          "fileName": "arabic.pdf",
+          "url": "/documents/syllabus/year-12/arabic.pdf",
+          "fileSizeBytes": 320748,
+          "fileSizeFormatted": "313 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "b-st",
+          "subjectCode": "B.ST",
+          "displayName": "B.ST",
+          "fileName": "b-st.pdf",
+          "url": "/documents/syllabus/year-12/b-st.pdf",
+          "fileSizeBytes": 314761,
+          "fileSizeFormatted": "307 KB",
+          "flag": "Flagged abbreviation: Displayed as B.ST (Eva confirmation needed: Business Studies)"
+        },
+        {
+          "subjectSlug": "biology",
+          "subjectCode": "BIO",
+          "displayName": "Biology",
+          "fileName": "biology.pdf",
+          "url": "/documents/syllabus/year-12/biology.pdf",
+          "fileSizeBytes": 302788,
+          "fileSizeFormatted": "296 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "chemistry",
+          "subjectCode": "CHEM",
+          "displayName": "Chemistry",
+          "fileName": "chemistry.pdf",
+          "url": "/documents/syllabus/year-12/chemistry.pdf",
+          "fileSizeBytes": 313009,
+          "fileSizeFormatted": "306 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "ict",
+          "subjectCode": "ICT",
+          "displayName": "ICT",
+          "fileName": "ict.pdf",
+          "url": "/documents/syllabus/year-12/ict.pdf",
+          "fileSizeBytes": 314129,
+          "fileSizeFormatted": "307 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "mathematics",
+          "subjectCode": "MATH",
+          "displayName": "Mathematics",
+          "fileName": "mathematics.pdf",
+          "url": "/documents/syllabus/year-12/mathematics.pdf",
+          "fileSizeBytes": 313930,
+          "fileSizeFormatted": "307 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "physics",
+          "subjectCode": "PHY",
+          "displayName": "Physics",
+          "fileName": "physics.pdf",
+          "url": "/documents/syllabus/year-12/physics.pdf",
+          "fileSizeBytes": 310294,
+          "fileSizeFormatted": "303 KB",
+          "flag": null
+        },
+        {
+          "subjectSlug": "sac",
+          "subjectCode": "SAC",
+          "displayName": "SAC",
+          "fileName": "sac.pdf",
+          "url": "/documents/syllabus/year-12/sac.pdf",
+          "fileSizeBytes": 312018,
+          "fileSizeFormatted": "305 KB",
+          "flag": "Flagged abbreviation: Displayed as SAC (Eva confirmation needed: Saudi Arabian Culture / Social Studies)"
+        }
+      ]
+    }
+  ]
+}
