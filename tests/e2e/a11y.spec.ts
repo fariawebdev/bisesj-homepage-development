@@ -19,12 +19,15 @@ const ROUTES = [
   { name: '404', path: '/en/non-existent-page-404' },
 ]
 
-test.describe('S2-09 & S2-10: Comprehensive Accessibility Audits across all 15 routes (axe-core)', () => {
+test.describe('S2-09 & S2-10 & S3-03: Comprehensive Accessibility Audits across all 15 routes (axe-core)', () => {
   for (const route of ROUTES) {
     test(`${route.name} (${route.path}) has zero accessibility violations (critical, serious, moderate, minor)`, async ({
       page,
     }) => {
+      // Ensure reduced motion is preferred so entrance animations settle immediately into final static styles
+      await page.emulateMedia({ reducedMotion: 'reduce' })
       await page.goto(route.path)
+      await page.waitForTimeout(500)
 
       const accessibilityScanResults = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
