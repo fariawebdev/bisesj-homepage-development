@@ -1,0 +1,31 @@
+{
+  "academicYear": "2026-27",
+  "generatedAt": "2026-10-31T00:00:00.000Z",
+  "classes": [
+    {
+      "slug": "year-7",
+      "label": "Year 7",
+      "academicYear": "2026-27",
+      "updatedAt": "2026-10-01",
+      "pdfUrl": "/documents/routine/year-7-routine.pdf",
+      "schedule": [
+        {
+          "day": "Sunday",
+          "periods": [
+            { "periodNumber": 1, "startTime": "07:30", "endTime": "08:15", "subject": "Mathematics", "room": "7A" },
+            { "periodNumber": 2, "startTime": "08:15", "endTime": "09:00", "subject": "English", "room": "7A" },
+            { "periodNumber": 3, "startTime": "09:00", "endTime": "09:45", "subject": "Science", "room": "Lab 2" }
+          ]
+        },
+        {
+          "day": "Monday",
+          "periods": [
+            { "periodNumber": 1, "startTime": "07:30", "endTime": "08:15", "subject": "Arabic", "room": "7A" },
+            { "periodNumber": 2, "startTime": "08:15", "endTime": "09:00", "subject": "ICT", "room": "Computer Lab 1" },
+            { "periodNumber": 3, "startTime": "09:00", "endTime": "09:45", "subject": "Islamic Studies", "room": "7A" }
+          ]
+        }
+      ]
+    }
+  ]
+}
