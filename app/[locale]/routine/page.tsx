@@ -49,14 +49,14 @@ export default function RoutinePage() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-xs font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-forest-deep"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-forest-deep focus-visible:outline-2 focus-visible:outline-gold"
             >
               <Phone aria-hidden="true" className="size-3.5" />
               <span>Contact School Office</span>
             </Link>
             <a
               href={SITE_CONFIG.contact.inquiryEmail.href}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-xs font-semibold text-primary transition-colors hover:bg-muted"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-border bg-background px-6 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-gold"
             >
               <Mail aria-hidden="true" className="size-3.5" />
               <span>Email {SITE_CONFIG.inquiryEmail}</span>
