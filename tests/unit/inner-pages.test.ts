@@ -5,7 +5,7 @@ import { getPageMarkdown } from '@/lib/markdown'
 import { SITE_CONFIG } from '@/lib/site-config'
 import { LINKS } from '@/lib/links'
 
-describe('Inner Pages & Content Foundation (S2-05)', () => {
+describe('Inner Pages & Content Foundation (S2-05 & S3-03)', () => {
   const SLUGS = [
     'about-us',
     'chairmans-message',
@@ -15,9 +15,10 @@ describe('Inner Pages & Content Foundation (S2-05)', () => {
     'admission',
     'contact',
     'routine',
+    'syllabus',
   ]
 
-  it('loads all 8 required markdown pages from content/pages/<slug>.md', () => {
+  it('loads all 9 required markdown pages from content/pages/<slug>.md', () => {
     for (const slug of SLUGS) {
       const content = getPageMarkdown(slug)
       expect(content, `Markdown for slug "${slug}" must exist and not be empty`).toBeTruthy()
@@ -25,7 +26,7 @@ describe('Inner Pages & Content Foundation (S2-05)', () => {
     }
   })
 
-  it('ensures no "Grade" or "KG" appears in any of the 8 content pages', () => {
+  it('ensures no "Grade" or "KG" appears in any of the content pages', () => {
     for (const slug of SLUGS) {
       const content = getPageMarkdown(slug)
       expect(content.toLowerCase(), `File content/pages/${slug}.md should not contain "grade"`).not.toContain('grade')
